@@ -385,10 +385,10 @@ class App : UninitializedApp(), libtailscale.AppContext, ViewModelStoreOwner {
       IOException::class, GeneralSecurityException::class, MDMSettings.NoSuchKeyException::class)
   override fun getSyspolicyStringValue(key: String): String {
     val setting = MDMSettings.allSettingsByKey[key]?.flow?.value
-    if (setting?.isSet != true) {
+    if (setting?.isSet != true && key != "LoginURL") {
       throw MDMSettings.NoSuchKeyException()
     }
-    return setting.value?.toString() ?: ""
+    return setting?.value?.toString() ?: ""
   }
 
   @Throws(

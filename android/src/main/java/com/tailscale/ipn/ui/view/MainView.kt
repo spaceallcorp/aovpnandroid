@@ -222,11 +222,13 @@ fun MainView(
                   ExitNodeStatus(
                       navAction = navigation.onNavigateToExitNodes, viewModel = viewModel)
                 }
+                /*
                 PeerList(
                     viewModel = viewModel,
                     onNavigateToPeerDetails = navigation.onNavigateToPeerDetails,
                     onSearchBarClick = navigation.onNavigateToSearch,
                     onSearch = { viewModel.searchPeers(it) })
+                */
               }
               Ipn.State.NoState,
               Ipn.State.Starting -> StartingView()

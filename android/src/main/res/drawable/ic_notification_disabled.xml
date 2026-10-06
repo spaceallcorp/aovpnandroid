@@ -1,46 +1,58 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="100dp"
-    android:height="100dp"
-    android:viewportWidth="100"
-    android:viewportHeight="100">
-  <path
-      android:pathData="M0,12.5a12.5,12.5 0,1 0,25 0a12.5,12.5 0,1 0,-25 0z"
-      android:fillColor="#000000"
-      android:fillAlpha="0.4"/>
-  <path
-      android:pathData="M37.5,12.5a12.5,12.5 0,1 0,25 0a12.5,12.5 0,1 0,-25 0z"
-      android:fillColor="#000000"
-      android:fillAlpha="0.4"/>
-  <path
-      android:pathData="M75,12.5a12.5,12.5 0,1 0,25 0a12.5,12.5 0,1 0,-25 0z"
-      android:fillColor="#000000"
-      android:fillAlpha="0.4"/>
-  <path
-      android:pathData="M-0,50a12.5,12.5 0,1 0,25 0a12.5,12.5 0,1 0,-25 0z"
-      android:strokeAlpha="0.4"
-      android:fillColor="#000000"
-      android:fillAlpha="0.4"/>
-  <path
-      android:pathData="M37.5,50a12.5,12.5 0,1 0,25 0a12.5,12.5 0,1 0,-25 0z"
-      android:strokeAlpha="0.4"
-      android:fillColor="#000000"
-      android:fillAlpha="0.4"/>
-  <path
-      android:pathData="M75,50a12.5,12.5 0,1 0,25 0a12.5,12.5 0,1 0,-25 0z"
-      android:strokeAlpha="0.4"
-      android:fillColor="#000000"
-      android:fillAlpha="0.4"/>
-  <path
-      android:pathData="M-0,87.5a12.5,12.5 0,1 0,25 0a12.5,12.5 0,1 0,-25 0z"
-      android:fillColor="#000000"
-      android:fillAlpha="0.4"/>
-  <path
-      android:pathData="M37.5,87.5a12.5,12.5 0,1 0,25 0a12.5,12.5 0,1 0,-25 0z"
-      android:strokeAlpha="0.4"
-      android:fillColor="#000000"
-      android:fillAlpha="0.4"/>
-  <path
-      android:pathData="M75,87.5a12.5,12.5 0,1 0,25 0a12.5,12.5 0,1 0,-25 0z"
-      android:fillColor="#000000"
-      android:fillAlpha="0.4"/>
-</vector>
+        android:width="100dp"
+        android:height="100dp"
+        android:viewportWidth="100"
+        android:viewportHeight="100">
+
+    <!-- Fundo -->
+    <path
+        android:pathData="M50,5
+        A45,45 0 1,1 50,95
+        A45,45 0 1,1 50,5"
+        android:fillColor="#18D9D0"/>
+
+    <!-- Moldura -->
+    <path
+        android:pathData="M33,34
+        C28,34 24,38 24,43
+        L24,67
+        C24,73 28,77 33,77
+        L64,77
+        C70,77 74,73 74,67
+        L74,52"
+        android:fillColor="#00000000"
+        android:strokeColor="#00155C"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+
+    <!-- Parte superior -->
+    <path
+        android:pathData="M24,43
+        C24,38 28,34 33,34
+        L48,34"
+        android:fillColor="#00000000"
+        android:strokeColor="#00155C"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"/>
+
+    <!-- Seta -->
+    <path
+        android:pathData="M49,50 L76,23"
+        android:fillColor="#00000000"
+        android:strokeColor="#00155C"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"/>
+
+    <!-- Cabeça da seta -->
+    <path
+        android:pathData="M61,23
+        L76,23
+        L76,38"
+        android:fillColor="#00000000"
+        android:strokeColor="#00155C"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+
+    </vector>

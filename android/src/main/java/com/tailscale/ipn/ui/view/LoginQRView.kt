@@ -95,7 +95,7 @@ fun LoginQRView(onDismiss: () -> Unit = {}, model: LoginQRViewModel = viewModel(
 @Preview
 fun LoginQRViewPreview() {
   val vm = LoginQRViewModel()
-  vm.qrCode.set(vm.generateQRCode("https://tailscale.com", 200, 0))
+  vm.qrCode.set(vm.generateQRCode("https://vpn.angolanvpn.com", 200, 0))
   vm.numCode.set("123456789")
   AppTheme { LoginQRView({}, vm) }
 }

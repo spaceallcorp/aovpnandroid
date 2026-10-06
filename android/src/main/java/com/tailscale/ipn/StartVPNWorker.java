@@ -56,7 +56,7 @@ public final class StartVPNWorker extends Worker {
         int pendingIntentFlags = PendingIntent.FLAG_ONE_SHOT | (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ? PendingIntent.FLAG_IMMUTABLE : 0);
         PendingIntent pendingIntent = PendingIntent.getActivity(app, 0, intent, pendingIntentFlags);
 
-        Notification notification = new Notification.Builder(app, channelId).setContentTitle(app.getString(R.string.title_connection_failed)).setContentText(app.getString(R.string.body_open_tailscale)).setSmallIcon(R.drawable.ic_notification).setContentIntent(pendingIntent).setAutoCancel(true).build();
+        Notification notification = new Notification.Builder(app, channelId).setContentTitle(app.getString(R.string.title_connection_failed)).setContentText(app.getString(R.string.body_open_angolanvpn)).setSmallIcon(R.drawable.ic_notification).setContentIntent(pendingIntent).setAutoCancel(true).build();
 
         notificationManager.notify(1, notification);
 

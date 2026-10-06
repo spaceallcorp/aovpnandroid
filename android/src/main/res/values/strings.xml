@@ -2,380 +2,380 @@
 <resources>
 
     <!-- Generic Strings -->
-    <string name="log_in">Log in</string>
-    <string name="log_out">Log out</string>
-    <string name="none">None</string>
-    <string name="connect">Connect</string>
-    <string name="disconnect">Disconnect</string>
-    <string name="unknown_user">Unknown user</string>
-    <string name="connected">Connected</string>
-    <string name="using_exit_node">Using exit node (%s)</string>
-    <string name="not_connected">Not connected</string>
+    <string name="log_in">Entrar</string>
+    <string name="log_out">Sair</string>
+    <string name="none">Nenhum</string>
+    <string name="connect">Ligar</string>
+    <string name="disconnect">Desligar</string>
+    <string name="unknown_user">Utilizador desconhecido</string>
+    <string name="connected">Ligado</string>
+    <string name="using_exit_node">A usar nó de saída (%s)</string>
+    <string name="not_connected">Não ligado</string>
     <string name="empty" translatable="false"> </string>
     <string name="template" translatable="false">%s</string>
-    <string name="selected">Selected</string> 
+    <string name="selected">Selecionado</string>
     <string name="offline">Offline</string>
     <string name="ok">OK</string>
-    <string name="_continue">Continue</string>
-    <string name="warning">Warning</string>
-    <string name="search">Search</string>
-    <string name="search_ellipsis">Search...</string>
-    <string name="dismiss">Dismiss</string>
-    <string name="no_results">No results</string>
-    <string name="back">Back</string>
-    <string name="clear_search">Clear search</string>
-    <string name="off">Off</string>
-    <string name="on">On</string>
-    <string name="try_again">Try again</string>
-    <string name="cancel">Cancel</string>
+    <string name="_continue">Continuar</string>
+    <string name="warning">Aviso</string>
+    <string name="search">Pesquisar</string>
+    <string name="search_ellipsis">Pesquisar...</string>
+    <string name="dismiss">Dispensar</string>
+    <string name="no_results">Sem resultados</string>
+    <string name="back">Voltar</string>
+    <string name="clear_search">Limpar pesquisa</string>
+    <string name="off">Desligado</string>
+    <string name="on">Ligado</string>
+    <string name="try_again">Tentar novamente</string>
+    <string name="cancel">Cancelar</string>
 
     <!-- Strings for the about screen -->
-    <string name="app_name" translatable="false">Tailscale</string>
-    <string name="tile_name" translatable="false">Tailscale</string>
-    <string name="version">Version</string>
-    <string name="about_view_header">About Tailscale</string>
-    <string name="about_view_title">Tailscale for Android</string>
-    <string name="acknowledgements">Acknowledgements</string>
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="terms_of_service">Terms of Service</string>
-    <string name="about_view_footnotes">WireGuard is a registered trademark of Jason A. Donenfeld.\n\n© 2024 Tailscale Inc. All rights reserved.\nTailscale is a registered trademark of Tailscale Inc.</string>
-    <string name="managed_by">Managed by</string>
+    <string name="app_name" translatable="false">AngolanVPN</string>
+    <string name="tile_name" translatable="false">AngolanVPN</string>
+    <string name="version">Versão</string>
+    <string name="about_view_header">Sobre AngolanVPN</string>
+    <string name="about_view_title">AngolanVPN para Android</string>
+    <string name="acknowledgements">Agradecimentos</string>
+    <string name="privacy_policy">Política de Privacidade</string>
+    <string name="terms_of_service">Termos de Serviço</string>
+    <string name="about_view_footnotes">WireGuard is a registered trademark of Jason A. Donenfeld.\n\n© 2024 AngolanVPN. Todos os direitos reservados.</string>
+    <string name="managed_by">Gerido por</string>
 
     <!-- Strings for the bug reporting screen -->
-    <string name="bug_report_title">Report a bug</string>
-    <string name="bug_report_instructions_prefix">To report a bug,&#160;</string>
-    <string name="bug_report_instructions_linktext">contact our support team&#160;</string>
-    <string name="bug_report_instructions_suffix"> and include the identifier below.</string>
-    <string name="bug_report_id_desc">This ID helps us find the event in our diagnostic logs. This process does not share any of your personally-identifiable information.</string>
+    <string name="bug_report_title">Reportar um erro</string>
+    <string name="bug_report_instructions_prefix">Para reportar um erro,&#160;</string>
+    <string name="bug_report_instructions_linktext">contacte a nossa equipa de suporte&#160;</string>
+    <string name="bug_report_instructions_suffix"> e inclua o identificador abaixo.</string>
+    <string name="bug_report_id_desc">Este ID ajuda-nos a encontrar o evento nos nossos registos de diagnóstico. Este processo não partilha nenhuma das suas informações de identificação pessoal.</string>
 
     <!-- Strings for the settings screen -->
-    <string name="settings_title">Settings</string>
-    <string name="settings_admin_prefix">"Manage your tailnet settings in the "</string>
-    <string name="settings_admin_link">admin console</string>
-    <string name="about_tailscale">About Tailscale</string>
-    <string name="bug_report">Bug report</string>
-    <string name="use_ts_dns">Use Tailscale DNS</string>
-    <string name="internal_debug_options">Internal debug options</string>
+    <string name="settings_title">Definições</string>
+    <string name="settings_admin_prefix">"Gira as definições da sua tailnet no "</string>
+    <string name="settings_admin_link">consola de administração</string>
+    <string name="about_tailscale">Sobre a AngolanVPN</string>
+    <string name="bug_report">Relatório de erro</string>
+    <string name="use_ts_dns">Usar DNS da AngolanVPN</string>
+    <string name="internal_debug_options">Opções de depuração internas</string>
 
     <!-- Strings for the main screen -->
-    <string name="exit_node">EXIT NODE</string>
-    <string name="exit_node_offline">EXIT NODE OFFLINE</string>
-    <string name="running_exit_node">Running on this device</string>
-    <string name="exit_node_offline_mdm_orgname">The exit node selected by %1$s is currently offline. Internet traffic is blocked. Contact a network administrator for help.</string>
-    <string name="exit_node_offline_mdm">The exit node selected by your organization is currently offline. Internet traffic is blocked. Contact a network administrator for help.</string>
-    <string name="starting">Starting…</string>
-    <string name="connect_to_tailnet_prefix">"Connect again to talk to the other devices in the "</string>
+    <string name="exit_node">NÓ DE SAÍDA</string>
+    <string name="exit_node_offline">NÓ DE SAÍDA OFFLINE</string>
+    <string name="running_exit_node">A correr neste dispositivo</string>
+    <string name="exit_node_offline_mdm_orgname">O nó de saída selecionado por %1$s está atualmente offline. O tráfego de Internet está bloqueado. Contacte um administrador de rede para obter ajuda.</string>
+    <string name="exit_node_offline_mdm">O nó de saída selecionado pela sua organização está atualmente offline. O tráfego de Internet está bloqueado. Contacte um administrador de rede para obter ajuda.</string>
+    <string name="starting">A iniciar…</string>
+    <string name="connect_to_tailnet_prefix">"Ligue-se novamente para comunicar com os outros dispositivos na "</string>
     <string name="connect_to_tailnet_suffix">" tailnet."</string>
-    <string name="welcome_to_tailscale">Welcome to Tailscale</string>
-    <string name="login_to_join_your_tailnet">Log in to join your tailnet and connect your devices.</string>
-    <string name="give_permissions">Set up a VPN connection so you can start using Tailscale.</string>
-    <string name="keyExpiryExplainer">Reauthenticate to remain connected to Tailscale.</string>
-    <string name="deviceKeyNeverExpires">Device key does not expire</string>
-    <string name="deviceKeyExpires">Device key expires %s</string>
-    <string name="deviceKeyExpired">Device key expired %s</string>
-    <string name="machine_auth_required">Admin approval required</string>
-    <string name="machine_auth_explainer">This device must be approved by an administrator before it can connect to the tailnet.</string>
-    <string name="open_admin_console">Open admin console</string>
-    <string name="needs_machine_auth">Authorization required</string>
-    <string name="disable">Disable</string>
-    <string name="enable">Enable</string>
-    <string name="stop">Stop</string>
+    <string name="welcome_to_tailscale">Bem-vindo à AngolanVPN</string>
+    <string name="login_to_join_your_tailnet">Faça login para se ligar seu ENaaS da AngolanVPN.</string>
+    <string name="give_permissions">Configure uma ligação ENaaS para começar a usar a AngolanVPN.</string>
+    <string name="keyExpiryExplainer">Autentique-se novamente para permanecer ligado à AngolanVPN.</string>
+    <string name="deviceKeyNeverExpires">A chave do dispositivo nunca expira</string>
+    <string name="deviceKeyExpires">A chave do dispositivo expira em %s</string>
+    <string name="deviceKeyExpired">A chave do dispositivo expirou em %s</string>
+    <string name="machine_auth_required">Aprovação do administrador necessária</string>
+    <string name="machine_auth_explainer">Este dispositivo deve ser aprovado por um administrador antes de se poder ligar à tailnet.</string>
+    <string name="open_admin_console">Abrir consola de administração</string>
+    <string name="needs_machine_auth">Autorização necessária</string>
+    <string name="disable">Desativar</string>
+    <string name="enable">Ativar</string>
+    <string name="stop">Parar</string>
 
     <!-- Strings for peer details -->
-    <string name="os">OS</string>
-    <string name="key_expiry">Key expiry</string>
-    <string name="tailscale_addresses">Tailscale addresses</string>
+    <string name="os">SO</string>
+    <string name="key_expiry">Expiração da chave</string>
+    <string name="tailscale_addresses">Endereços AngolanVPN</string>
 
     <!-- Strings for MDM settings -->
-    <string name="current_mdm_settings">Current MDM settings</string>
-    <string name="mdm_settings">MDM settings</string>
-    <string name="managed_by_orgName">Managed by %1$s</string>
-    <string name="managed_by_explainer">Your organization is managing Tailscale on this device. Some features might have been customized or hidden by your system administrator.</string>
-    <string name="managed_by_explainer_orgName">%1$s is managing Tailscale on this device. Some features might have been customized or hidden by your system administrator.</string>
-    <string name="open_support">Open support</string>
+    <string name="current_mdm_settings">Definições de MDM atuais</string>
+    <string name="mdm_settings">Definições de MDM</string>
+    <string name="managed_by_orgName">Gerido por %1$s</string>
+    <string name="managed_by_explainer">A sua organização está a gerir a AngolanVPN neste dispositivo. Algumas funcionalidades podem ter sido personalizadas ou ocultadas pelo seu administrador de sistema.</string>
+    <string name="managed_by_explainer_orgName">%1$s está a gerir a AngolanVPN neste dispositivo. Algumas funcionalidades podem ter sido personalizadas ou ocultadas pelo seu administrador de sistema.</string>
+    <string name="open_support">Abrir suporte</string>
 
     <!-- State strings -->
     <string name="placeholder" translatable="false">--</string>
-    <string name="please_login">Login required</string>
-    <string name="stopped">Not connected</string>
-    <string name="connect_to_vpn">Connect to VPN</string>
+    <string name="please_login">Login necessário</string>
+    <string name="stopped">Não ligado</string>
+    <string name="connect_to_vpn">Ligar à VPN</string>
 
     <!-- Time conversion templates -->
-    <string name="under_a_minute">under a minute</string>
-    <string name="in_x_minutes">in %d minutes</string>
-    <string name="in_x_hours">in %d hours</string>
-    <string name="in_x_days">in %d days</string>
-    <string name="in_x_months">in %d months</string>
-    <string name="in_x_years">in %.1f years</string>
+    <string name="under_a_minute">menos de um minuto</string>
+    <string name="in_x_minutes">em %d minutos</string>
+    <string name="in_x_hours">em %d horas</string>
+    <string name="in_x_days">em %d dias</string>
+    <string name="in_x_months">em %d meses</string>
+    <string name="in_x_years">em %.1f anos</string>
 
-    <string name="ago_x_minutes">%d minutes ago</string>
-    <string name="ago_x_hours">%d hours ago</string>
-    <string name="ago_x_days">%d days ago</string>
-    <string name="ago_x_months">%d months ago</string>
-    <string name="ago_x_years">%.1f years ago</string>
+    <string name="ago_x_minutes">há %d minutos</string>
+    <string name="ago_x_hours">há %d horas</string>
+    <string name="ago_x_days">há %d dias</string>
+    <string name="ago_x_months">há %d meses</string>
+    <string name="ago_x_years">há %.1f anos</string>
 
     <!-- Strings for the user switcher -->
-    <string name="logout_failed">Unable to logout at this time. Please try again.</string>
-    <string name="error">Error</string>
-    <string name="accounts">Accounts</string>
-    <string name="add_account">Add another account</string>
-    <string name="add_account_short">Add account</string>
-    <string name="reauthenticate">Reauthenticate</string>
-    <string name="switch_user_failed">Unable to switch users. Please try again.</string>
-    <string name="add_profile_failed">Unable to add a new profile. Please try again.</string>
-    <string name="invalidCustomUrl">Please enter a valid URL in the form https://server.com</string>
-    <string name="invalidCustomURLTitle">Invalid URL</string>
-    <string name="custom_control_menu">Use an alternate server</string>
-    <string name="custom_control_menu_desc">Enter the URL of an alternate Tailscale server or your self-hosted Headscale server.</string>
+    <string name="logout_failed">Não foi possível terminar a sessão neste momento. Tente novamente.</string>
+    <string name="error">Erro</string>
+    <string name="accounts">Contas</string>
+    <string name="add_account">Adicionar outra conta</string>
+    <string name="add_account_short">Adicionar conta</string>
+    <string name="reauthenticate">Reautenticar</string>
+    <string name="switch_user_failed">Não foi possível mudar de utilizador. Tente novamente.</string>
+    <string name="add_profile_failed">Não foi possível adicionar um novo perfil. Tente novamente.</string>
+    <string name="invalidCustomUrl">Introduza um URL válido no formato https://servidor.com</string>
+    <string name="invalidCustomURLTitle">URL inválido</string>
+    <string name="custom_control_menu">Usar um servidor alternativo</string>
+    <string name="custom_control_menu_desc">Introduza o URL de um servidor AngolanVPN alternativo ou do seu servidor Headscale auto-hospedado.</string>
     <string name="custom_control_placeholder" translatable="false">https://my.custom.server.com</string>
-    <string name="auth_key_menu">Use an auth key</string>
-    <string name="auth_key_title">Add an account using an auth key</string>
-    <string name="auth_key_explanation">Enter a valid auth key generated by the Tailscale admin console</string>
-    <string name="auth_key_placeholder">ie: tskey-auth-mYta1ln3tCNTRL-s3cr3tauthk3yFr0madM1n</string>
-    <string name="invalidAuthKey">The provided auth key is not in the correct format.</string>
-    <string name="invalidAuthKeyTitle">Invalid key</string>
-    <string name="custom_control_url_title">Custom control server URL</string>
-    <string name="auth_key_input_title">Auth key</string>
-    <string name="delete_tailnet">Delete tailnet</string>
-    <string name="contact_support">Contact support</string>
-    <string name="request_deletion_nonowner">All requests related to the removal or deletion of data are handled by our Support team. To open a request, tap the Contact Support button below to be taken to our contact form in the browser. Complete the form, and a Customer Support Engineer will work with you directly to assist.</string>
+    <string name="auth_key_menu">Usar uma chave de autenticação</string>
+    <string name="auth_key_title">Adicionar uma conta usando uma chave de autenticação</string>
+    <string name="auth_key_explanation">Introduza uma chave de autenticação válida gerada pela consola de administração da AngolanVPN</string>
+    <string name="auth_key_placeholder">ex: tskey-auth-mYta1ln3tCNTRL-s3cr3tauthk3yFr0madM1n</string>
+    <string name="invalidAuthKey">A chave de autenticação fornecida não está no formato correto.</string>
+    <string name="invalidAuthKeyTitle">Chave inválida</string>
+    <string name="custom_control_url_title">URL do servidor de controlo personalizado</string>
+    <string name="auth_key_input_title">Chave de autenticação</string>
+    <string name="delete_tailnet">Eliminar tailnet</string>
+    <string name="contact_support">Contactar o suporte</string>
+    <string name="request_deletion_nonowner">Todos os pedidos relacionados com a remoção ou eliminação de dados são tratados pela nossa equipa de Suporte. Para abrir um pedido, toque no botão Contactar Suporte abaixo para ser levado ao nosso formulário de contacto no browser. Preencha o formulário e um Engenheiro de Suporte ao Cliente trabalhará consigo diretamente para o ajudar.</string>
     <string name="request_deletion_owner_part1">
-    As the owner of this tailnet, to remove yourself from the tailnet you can either reassign ownership and contact our Support team, or delete the whole tailnet through the admin console. To do the latter, go to
+    Como proprietário desta tailnet, para se remover da tailnet pode reatribuir a propriedade e contactar a nossa equipa de Suporte, ou eliminar toda a tailnet através da consola de administração. Para fazer o último, vá a
 </string>
 <string name="request_deletion_owner_part2a">
-    and look for “Delete tailnet”.
+    e procure por “Eliminar tailnet”.
 </string>
 
 <string name="request_deletion_owner_part2b">
-    All requests related to the removal or deletion of data are handled by our Support team. To open a request, tap the Contact Support button below to be taken to our contact form in the browser. Complete the form, and a Customer Support Engineer will work with you directly to assist.
+    Todos os pedidos relacionados com a remoção ou eliminação de dados são tratados pela nossa equipa de Suporte. Para abrir um pedido, toque no botão Contactar Suporte abaixo para ser levado ao nosso formulário de contacto no browser. Preencha o formulário e um Engenheiro de Suporte ao Cliente trabalhará consigo diretamente para o ajudar.
 </string>
 
     <!-- Strings for ExitNode picker -->
-    <string name="choose_exit_node">Choose exit node</string>
-    <string name="choose_mullvad_exit_node">Mullvad exit nodes</string>
+    <string name="choose_exit_node">Escolher nó de saída</string>
+    <string name="choose_mullvad_exit_node">Nós de saída Mullvad</string>
     <string name="mullvad_exit_nodes" translatable="false">Mullvad VPN</string>
-    <string name="best_available">Best available</string>
-    <string name="run_as_exit_node">Run as exit node</string>
-    <string name="run_this_device_as_an_exit_node">Run as exit node?</string>
-    <string name="run_exit_node_explainer">Other devices in your tailnet will be able to route their internet traffic through this Android device. Make sure to approve this exit node in the admin console in order for other devices to see it.</string>
-    <string name="run_exit_node_caution">Running an exit node will severely impact battery life. On a metered data plan, significant cellular data charges may also apply. Always disable this feature when no longer needed.</string>
-    <string name="stop_running_as_exit_node">Stop running as exit node</string>
-    <string name="start_running_as_exit_node">Run as exit node</string>
-    <string name="running_as_exit_node">Now running as exit node</string>
-    <string name="run_exit_node_explainer_running">Other devices in your tailnet can now route their internet traffic through this Android device. Make sure to approve this exit node in the admin console in order for other devices to see it.</string>
-    <string name="enabled">Enabled</string>
-    <string name="disabled">Disabled</string>
-    <string name="exit_node_mdm_orgname">%1$s requires you to use an exit node.</string>
-    <string name="exit_node_mdm">Your organization requires you to use an exit node.</string>
+    <string name="best_available">Melhor disponível</string>
+    <string name="run_as_exit_node">Correr como nó de saída</string>
+    <string name="run_this_device_as_an_exit_node">Correr como nó de saída?</string>
+    <string name="run_exit_node_explainer">Outros dispositivos na sua tailnet poderão encaminhar o seu tráfego de internet através deste dispositivo Android. Certifique-se de aprovar este nó de saída na consola de administração para que outros dispositivos o possam ver.</string>
+    <string name="run_exit_node_caution">Correr um nó de saída terá um impacto severo na duração da bateria. Num plano de dados limitado, podem também aplicar-se custos significativos de dados móveis. Desative sempre esta funcionalidade quando já não for necessária.</string>
+    <string name="stop_running_as_exit_node">Parar de correr como nó de saída</string>
+    <string name="start_running_as_exit_node">Correr como nó de saída</string>
+    <string name="running_as_exit_node">A correr agora como nó de saída</string>
+    <string name="run_exit_node_explainer_running">Outros dispositivos na sua tailnet can now route their internet traffic through this Android device. Make sure to approve this exit node in the admin console in order for other devices to see it.</string>
+    <string name="enabled">Ativado</string>
+    <string name="disabled">Desativado</string>
+    <string name="exit_node_mdm_orgname">%1$s exige que use um nó de saída.</string>
+    <string name="exit_node_mdm">A sua organização exige que use um nó de saída.</string>
 
     <!-- Strings for the tailnet lock screen -->
-    <string name="tailnet_lock">Tailnet lock</string>
-    <string name="tailnet_lock_explainer">"Tailnet lock lets devices in your network verify public keys distributed by the coordination server before trusting them for connectivity. "</string>
-    <string name="tailnet_lock_enabled">Tailnet lock is currently enabled.</string>
-    <string name="tailnet_lock_disabled">Tailnet lock is currently not enabled.</string>
-    <string name="this_node_has_been_signed">This node has been signed by another device.</string>
-    <string name="this_node_has_not_been_signed">This node has not been signed by another device.</string>
-    <string name="this_node_is_trusted">This node is trusted to change the Tailnet lock configuration.</string>
-    <string name="this_node_is_not_trusted">This node is not trusted to change the Tailnet lock configuration.</string>
-    <string name="copy_to_clipboard">Copy to clipboard</string>
-    <string name="node_key">Node key</string>
-    <string name="tailnet_lock_key">Tailnet lock key</string>
-    <string name="node_key_explainer">Used to sign this node from another signing device in your tailnet.</string>
-    <string name="tailnet_lock_key_explainer">Used to authorize changes to the Tailnet lock configuration.</string>
+    <string name="tailnet_lock">Bloqueio de tailnet</string>
+    <string name="tailnet_lock_explainer">"O bloqueio de tailnet permite que os dispositivos na sua rede verifiquem as chaves públicas distribuídas pelo servidor de coordenação antes de confiar nelas para a conetividade. "</string>
+    <string name="tailnet_lock_enabled">O bloqueio de tailnet está atualmente ativado.</string>
+    <string name="tailnet_lock_disabled">O bloqueio de tailnet não está atualmente ativado.</string>
+    <string name="this_node_has_been_signed">Este nó foi assinado por outro dispositivo.</string>
+    <string name="this_node_has_not_been_signed">Este nó não foi assinado por outro dispositivo.</string>
+    <string name="this_node_is_trusted">Este nó é de confiança para alterar a configuração do bloqueio de tailnet.</string>
+    <string name="this_node_is_not_trusted">Este nó não é de confiança para alterar a configuração do bloqueio de tailnet.</string>
+    <string name="copy_to_clipboard">Copiar para a área de transferência</string>
+    <string name="node_key">Chave do nó</string>
+    <string name="tailnet_lock_key">Chave de bloqueio de tailnet</string>
+    <string name="node_key_explainer">Usada para assinar este nó a partir de outro dispositivo de assinatura na sua tailnet.</string>
+    <string name="tailnet_lock_key_explainer">Usada para autorizar alterações na configuração do bloqueio de tailnet.</string>
 
     <!-- Strings for the bug report screen -->
-    <string name="bug_report_id">Bug report ID</string>
-    <string name="learn_more">Learn more</string>
+    <string name="bug_report_id">ID do relatório de erro</string>
+    <string name="learn_more">Saber mais</string>
 
     <!-- Strings for DNS settings -->
-    <string name="dns_settings">DNS settings</string>
-    <string name="using_tailscale_dns">Using Tailscale DNS</string>
-    <string name="this_device_is_using_tailscale_to_resolve_dns_names">This device is using Tailscale to resolve DNS names.</string>
-    <string name="resolvers">Resolvers</string>
-    <string name="search_domains">Search domains</string>
-    <string name="not_running">Not running</string>
-    <string name="tailscale_is_not_running_this_device_is_using_the_system_dns_resolver">Tailscale is not running. This device is using the system\'s DNS resolver.</string>
-    <string name="this_device_is_using_the_system_dns_resolver">This device is using the system DNS resolver.</string>
-    <string name="not_using_tailscale_dns">Not using Tailscale DNS</string>
-    <string name="allow_lan_access">Allow LAN access</string>
-    <string name="countries">countries</string>
-    <string name="cities_available">cities available</string>
+    <string name="dns_settings">Definições de DNS</string>
+    <string name="using_tailscale_dns">A usar DNS da AngolanVPN</string>
+    <string name="this_device_is_using_tailscale_to_resolve_dns_names">Este dispositivo está a usar a AngolanVPN para resolver nomes de DNS.</string>
+    <string name="resolvers">Resolvedores</string>
+    <string name="search_domains">Domínios de pesquisa</string>
+    <string name="not_running">Não está a correr</string>
+    <string name="tailscale_is_not_running_this_device_is_using_the_system_dns_resolver">A AngolanVPN não está a correr. Este dispositivo está a usar o resolvedor de DNS do sistema.</string>
+    <string name="this_device_is_using_the_system_dns_resolver">Este dispositivo está a usar o resolvedor de DNS do sistema.</string>
+    <string name="not_using_tailscale_dns">Não está a usar DNS da Tailscale</string>
+    <string name="allow_lan_access">Permitir acesso à LAN</string>
+    <string name="countries">países</string>
+    <string name="cities_available">cidades disponíveis</string>
 
     <!-- Strings for MDM Settings Manifest (app_restrictions.xml) -->
-    <string name="prevents_the_user_from_disconnecting_tailscale">Prevents the user from disconnecting Tailscale.</string>
-    <string name="force_enabled_connection_toggle">Force enabled connection toggle</string>
-    <string name="exit_node_id">Exit node ID</string>
-    <string name="forces_the_tailscale_client_to_always_use_the_exit_node_with_the_given_id">Forces the Tailscale client to always use the exit node with the given ID.</string>
-    <string name="managed_by_organization_name">Managed by - organization name</string>
-    <string name="managed_by_caption">Managed by - caption</string>
-    <string name="managed_by_url">Managed by - URL</string>
-    <string name="shows_a_button_to_open_support_resources_next_to_the_organization_name">Shows a button to open support resources next to the organization name.</string>
-    <string name="shows_the_given_caption_next_to_the_organization_name_in_the_client">Shows the given caption next to the organization name in the client.</string>
-    <string name="shows_the_given_organization_name_in_the_client">Shows the given organization name in the client.</string>
-    <string name="the_tailnet_policy_allows_the_organization_to_specify_a_tailnet">The Tailnet policy allows the organization to specify a tailnet, its identity provider will be used on the login page. If the policy value is prefixed with required:, Tailscale will force that identity provider to be used and won’t allow logging in with anything else.</string>
-    <string name="required_suggested_tailnet">Required/Suggested Tailnet</string>
-    <string name="custom_control_server_url">Custom control server URL</string>
-    <string name="use_this_field_to_specify_a_custom_coordination_server_url_such_as_a_headscale_instance">Use this field to specify a custom coordination server URL, such as a Headscale instance.</string>
-    <string name="hidden_network_devices">Hidden network devices</string>
-    <string name="hides_the_specified_categories_of_network_devices_from_the_devices_list_in_the_client">Hides the specified categories of network devices from the devices list in the client.</string>
-    <string name="allow_lan_access_when_using_an_exit_node">Allow LAN access when using an exit node</string>
-    <string name="enable_posture_checking">Enable posture checking</string>
-    <string name="device_serial_number">Serial number of the device that is running Tailscale</string>
-    <string name="device_serial_number_descr">Allows administrators to pass the serial number of the device to Tailscale client using MDM.</string>
-    <string name="use_tailscale_dns_settings">Use Tailscale DNS settings</string>
-    <string name="use_tailscale_subnets">Use Tailscale subnets</string>
-    <string name="allow_incoming_connections">Allow incoming connections</string>
-    <string name="exit_node_picker_visibility">Exit node picker visibility</string>
-    <string name="shows_or_hides_the_exit_node_picker_in_the_main_view_of_the_app">Shows or hides the exit node picker in the main view of the app.</string>
-    <string name="shows_or_hides_the_tailnet_lock_configuration_ui">Shows or hides the Tailnet lock configuration UI.</string>
-    <string name="manage_tailnet_lock_visibility">Manage Tailnet lock visibility</string>
-    <string name="shows_or_hides_the_ui_to_run_the_android_device_as_an_exit_node">Shows or hides the UI to run the Android device as an exit node.</string>
-    <string name="run_as_exit_node_visibility">Run as exit node visibility</string>
-    <string name="defines_an_auth_key_that_will_be_used_for_login">Defines an auth key that will be used for login.</string>
-    <string name="auth_key">Auth Key</string>
-    <string name="skips_the_intro_page_shown_to_users_that_open_the_app_for_the_first_time">Skips the intro page shown to users that open the app for the first time</string>
-    <string name="onboarding_flow">Skip the Onboarding Flow</string>
+    <string name="prevents_the_user_from_disconnecting_tailscale">Impede o utilizador de desligar a Tailscale.</string>
+    <string name="force_enabled_connection_toggle">Forçar alternância de ligação ativada</string>
+    <string name="exit_node_id">ID do nó de saída</string>
+    <string name="forces_the_tailscale_client_to_always_use_the_exit_node_with_the_given_id">Força o cliente Tailscale a usar sempre o nó de saída com o ID fornecido.</string>
+    <string name="managed_by_organization_name">Gerido por - nome da organização</string>
+    <string name="managed_by_caption">Gerido por - legenda</string>
+    <string name="managed_by_url">Gerido por - URL</string>
+    <string name="shows_a_button_to_open_support_resources_next_to_the_organization_name">Mostra um botão para abrir recursos de suporte junto ao nome da organização.</string>
+    <string name="shows_the_given_caption_next_to_the_organization_name_in_the_client">Mostra a legenda fornecida junto ao nome da organização no cliente.</string>
+    <string name="shows_the_given_organization_name_in_the_client">Mostra o nome da organização fornecido no cliente.</string>
+    <string name="the_tailnet_policy_allows_the_organization_to_specify_a_tailnet">A política de tailnet permite à organização especificar uma tailnet, o seu fornecedor de identidade será utilizado na página de login. Se o valor da política for prefixado com required:, a Tailscale forçará a utilização desse fornecedor de identidade e não permitirá o login com mais nada.</string>
+    <string name="required_suggested_tailnet">Tailnet Obrigatória/Sugerida</string>
+    <string name="custom_control_server_url">URL do servidor de controlo personalizado</string>
+    <string name="use_this_field_to_specify_a_custom_coordination_server_url_such_as_a_headscale_instance">Use este campo para especificar um URL de servidor de coordenação personalizado, como uma instância Headscale.</string>
+    <string name="hidden_network_devices">Dispositivos de rede ocultos</string>
+    <string name="hides_the_specified_categories_of_network_devices_from_the_devices_list_in_the_client">Oculta as categorias especificadas de dispositivos de rede da lista de dispositivos no cliente.</string>
+    <string name="allow_lan_access_when_using_an_exit_node">Permitir acesso à LAN ao usar um nó de saída</string>
+    <string name="enable_posture_checking">Ativar verificação de postura</string>
+    <string name="device_serial_number">Número de série do dispositivo que está a correr a Tailscale</string>
+    <string name="device_serial_number_descr">Permite que os administradores passem o número de série do dispositivo para o cliente Tailscale usando MDM.</string>
+    <string name="use_tailscale_dns_settings">Usar definições de DNS da Tailscale</string>
+    <string name="use_tailscale_subnets">Usar sub-redes da Tailscale</string>
+    <string name="allow_incoming_connections">Permitir ligações de entrada</string>
+    <string name="exit_node_picker_visibility">Visibilidade do seletor de nó de saída</string>
+    <string name="shows_or_hides_the_exit_node_picker_in_the_main_view_of_the_app">Mostra ou oculta o seletor de nó de saída na vista principal da aplicação.</string>
+    <string name="shows_or_hides_the_tailnet_lock_configuration_ui">Mostra ou oculta a IU de configuração do bloqueio de tailnet.</string>
+    <string name="manage_tailnet_lock_visibility">Gerir visibilidade do bloqueio de tailnet</string>
+    <string name="shows_or_hides_the_ui_to_run_the_android_device_as_an_exit_node">Mostra ou oculta a IU para correr o dispositivo Android como um nó de saída.</string>
+    <string name="run_as_exit_node_visibility">Visibilidade de correr como nó de saída</string>
+    <string name="defines_an_auth_key_that_will_be_used_for_login">Define uma chave de autenticação que será usada para o login.</string>
+    <string name="auth_key">Chave de autenticação</string>
+    <string name="skips_the_intro_page_shown_to_users_that_open_the_app_for_the_first_time">Salta a página de introdução mostrada aos utilizadores que abrem a aplicação pela primeira vez</string>
+    <string name="onboarding_flow">Salta o fluxo de integração</string>
 
     <!-- Permissions Management -->
-    <string name="permissions">Permissions</string>
-    <string name="permission_write_external_storage">Storage</string>
-    <string name="permission_write_external_storage_needed">We use storage in order to receive files with Taildrop.</string>
-    <string name="permission_post_notifications">Notifications</string>
-    <string name="permission_post_notifications_needed">We use notifications to help you troubleshoot broken connections, or notify you before you need to reauthenticate to your network. Persistent status notifications are off by default and can be enabled in system settings. </string>
-    <string name="open_notification_settings">Go to notification settings</string>
-    <string name="notification_settings_explanation">Persistent status notifications are off by default and can be enabled in system settings.</string>
-    <string name="taildrop_dir">Taildrop directory</string>
-    <string name="taildrop_dir_access">Taildrop directory access</string>
-    <string name="permission_taildrop_dir">Give Tailscale access to a folder in order to be able to download incoming files sent to you via Taildrop.</string>
-    <string name="dir_access">Directory access</string>
-    <string name="pick_dir">Pick a different directory</string>
+    <string name="permissions">Permissões</string>
+    <string name="permission_write_external_storage">Armazenamento</string>
+    <string name="permission_write_external_storage_needed">Usamos o armazenamento para receber ficheiros com o Taildrop.</string>
+    <string name="permission_post_notifications">Notificações</string>
+    <string name="permission_post_notifications_needed">Usamos notificações para o ajudar a resolver ligações interrompidas ou para o notificar antes de precisar de se reautenticar na sua rede. As notificações de estado persistentes estão desativadas por predefinição e podem ser ativadas nas definições do sistema.</string>
+    <string name="open_notification_settings">Ir para definições de notificações</string>
+    <string name="notification_settings_explanation">As notificações de estado persistentes estão desativadas por predefinição e podem ser ativadas nas definições do sistema.</string>
+    <string name="taildrop_dir">Diretório Taildrop</string>
+    <string name="taildrop_dir_access">Acesso ao diretório Taildrop</string>
+    <string name="permission_taildrop_dir">Dê à AngolanVPN acesso a uma pasta para poder descarregar ficheiros recebidos enviados através do Taildrop.</string>
+    <string name="dir_access">Acesso ao diretório</string>
+    <string name="pick_dir">Escolher um diretório diferente</string>
 
     <!-- Strings for the share activity -->
-    <string name="share">Send with Taildrop</string>
-    <string name="share_device_not_connected">Unable to share files with this device. This device is not currently connected to the tailnet.</string>
-    <string name="no_files_to_share">No files to share</string>
-    <string name="file_count">%1$s files</string>
-    <string name="connect_to_your_tailnet_to_share_files">Connect to your tailnet to share files.</string>
-    <string name="my_devices">My devices</string>
-    <string name="no_devices_to_share_with">There are no devices on your tailnet to share to</string>
-    <string name="taildrop_share_failed">Taildrop failed. Some files were not shared. Please try again.</string>
-    <string name="taildrop_sending">Sending</string>
-    <string name="taildrop_share_failed_short">Failed</string>
+    <string name="share">Enviar com Taildrop</string>
+    <string name="share_device_not_connected">Não foi possível partilhar ficheiros com este dispositivo. Este dispositivo não está atualmente ligado à tailnet.</string>
+    <string name="no_files_to_share">Sem ficheiros para partilhar</string>
+    <string name="file_count">%1$s ficheiros</string>
+    <string name="connect_to_your_tailnet_to_share_files">Ligue-se à sua tailnet para partilhar ficheiros.</string>
+    <string name="my_devices">Os meus dispositivos</string>
+    <string name="no_devices_to_share_with">Não existem dispositivos na sua tailnet para os quais partilhar</string>
+    <string name="taildrop_share_failed">O Taildrop falhou. Alguns ficheiros não foram partilhados. Tente novamente.</string>
+    <string name="taildrop_sending">A enviar</string>
+    <string name="taildrop_share_failed_short">Falhou</string>
 
 
     <!-- Error Dialog Titles -->
-    <string name="logout_failed_title">Logout failed</string>
-    <string name="switch_user_failed_title">Cannot switch to user</string>
-    <string name="add_profile_failed_title">Unable to add profile</string>
-    <string name="share_device_not_connected_title">Not connected</string>
-    <string name="taildrop_share_failed_title">Taildrop failed</string>
+    <string name="logout_failed_title">Falha ao terminar sessão</string>
+    <string name="switch_user_failed_title">Não é possível mudar para o utilizador</string>
+    <string name="add_profile_failed_title">Não foi possível adicionar o perfil</string>
+    <string name="share_device_not_connected_title">Não ligado</string>
+    <string name="taildrop_share_failed_title">O Taildrop falhou</string>
 
     <!-- Strings for the intro screen -->
-    <string name="getStarted">Get Started</string>
-    <string name="welcome1">Tailscale is a mesh VPN for securely connecting your devices.</string>
-    <string name="welcome2">All connections are device-to-device, so we never see your data. We collect and use your email address and name, as well as your device name, OS version, and IP address in order to help you to connect your devices and manage your settings. We log when you are connected to your network.</string>
-    <string name="scan_to_connect_to_your_tailnet">Scan this QR code to log in to your tailnet</string>
-    <string name="enter_code_to_connect_to_tailnet">or enter this code in the Machines > Add device section of the admin console: </string>
+    <string name="getStarted">Começar</string>
+    <string name="welcome1">AngolanVPN é uma VPN segura para ligar os seus dispositivos.</string>
+    <string name="welcome2">Todas as ligações são seguras e privadas.</string>
+    <string name="scan_to_connect_to_your_tailnet">Leia este código QR para fazer login na sua tailnet</string>
+    <string name="enter_code_to_connect_to_tailnet">ou introduza este código na secção Machines > Add device da consola de administração: </string>
 
     <!-- Strings for intent handling -->
-    <string name="vpn_is_not_ready_to_start">VPN is not ready to start</string>
-    <string name="tailscale_is_not_setup">Tailscale is not setup</string>
-    <string name="no_peers_found">No peers found</string>
-    <string name="no_peers_with_name_found">No peers with name %1$s found</string>
-    <string name="multiple_peers_with_name_found">Multiple peers with name %1$s found</string>
-    <string name="peer_with_name_is_not_an_exit_node">Peer with name %1$s is not an exit node</string>
-    <string name="use_exit_node_intent_failed">Use Exit Node Intent Failed</string>
+    <string name="vpn_is_not_ready_to_start">A VPN não está pronta para iniciar</string>
+    <string name="tailscale_is_not_setup">A AngolanVPN não está configurada</string>
+    <string name="no_peers_found">Nenhum par encontrado</string>
+    <string name="no_peers_with_name_found">Nenhum par com o nome %1$s encontrado</string>
+    <string name="multiple_peers_with_name_found">Múltiplos pares com o nome %1$s encontrados</string>
+    <string name="peer_with_name_is_not_an_exit_node">O par com o nome %1$s não é um nó de saída</string>
+    <string name="use_exit_node_intent_failed">Falha na intenção de usar nó de saída</string>
 
     <!-- Strings for the IPNReceiver -->
-    <string name="title_connection_failed">Tailscale Connection Failed</string>
-    <string name="body_open_tailscale">Tap here to open Tailscale.</string>
+    <string name="title_connection_failed">Falha na Ligação AngolanVPN</string>
+    <string name="body_open_angolanvpn">Toque aqui para abrir a AngolanVPN.</string>
 
     <!-- Strings describing notification channels -->
-    <string name="taildrop_file_transfers">Taildrop file transfers</string>
-    <string name="vpn_status">VPN status</string>
-    <string name="vpn_start">VPN start</string>
-    <string name="notifications_delivered_when_user_interaction_is_required_to_establish_the_vpn_tunnel">Notifications delivered when user interaction is required to establish the VPN tunnel.</string>
-    <string name="optional_notifications_which_display_the_status_of_the_vpn_tunnel">Optional notifications which display the status of the VPN tunnel.</string>
-    <string name="notifications_delivered_when_a_file_is_received_using_taildrop">Notifications delivered when a file is received using Taildrop.</string>
-    <string name="health_channel_name">Errors and warnings</string>
-    <string name="health_channel_description">This notification category is used to deliver important status notifications and should be left enabled. For instance, it is used to notify you about errors or warnings that affect Internet connectivity.</string>
-    <string name="copy_ip_address">Copy IP Address</string>
+    <string name="taildrop_file_transfers">Transferências de ficheiros Taildrop</string>
+    <string name="vpn_status">Estado da VPN</string>
+    <string name="vpn_start">Início da VPN</string>
+    <string name="notifications_delivered_when_user_interaction_is_required_to_establish_the_vpn_tunnel">Notificações entregues quando é necessária a interação do utilizador para estabelecer o túnel VPN.</string>
+    <string name="optional_notifications_which_display_the_status_of_the_vpn_tunnel">Notificações opcionais que exibem o estado do túnel VPN.</string>
+    <string name="notifications_delivered_when_a_file_is_received_using_taildrop">Notificações entregues quando um ficheiro é recebido usando o Taildrop.</string>
+    <string name="health_channel_name">Erros e avisos</string>
+    <string name="health_channel_description">Esta categoria de notificação é usada para entregar notificações de estado importantes e deve ser deixada ativada. Por exemplo, é usada para o notificar sobre erros ou avisos que afetam a conetividade à Internet.</string>
+    <string name="copy_ip_address">Copiar endereço IP</string>
     <string name="ping">Ping</string>
-    <string name="relayed_connection">Relayed connection (%1$s)</string>
-    <string name="direct_connection">Direct connection</string>
-    <string name="peer_relayed_connection">Peer relayed connection</string>
-    <string name="pinging_node_name">Pinging %1$s</string>
-    <string name="pingFailed">Ping failed</string>
-    <string name="an_unknown_error_occurred_please_try_again">An unknown error occurred. Please try again.</string>
-    <string name="request_timed_out_make_sure_that_is_online">Request timed out. Make sure that \'%1$s\' is online.</string>
-    <string name="split_tunneling">App split tunneling</string>
-    <string name="your_current_selection_will_be_cleared">Your current selection will be cleared.</string>
-    <string name="filter_apps_allowed_to_access_tailscale">Filter what apps are allowed to access Tailscale.</string>
-    <string name="selected_apps_will_access_the_internet_directly_without_using_tailscale">Apps you select will access the internet without using Tailscale.</string>
-    <string name="selected_apps_will_access_tailscale">Only apps you select will be allowed to access Tailscale.</string>
-    <string name="count_excluded_apps">Excluded apps (%1$s)</string>
-    <string name="count_included_apps">Included apps (%1$s)</string>
-    <string name="certain_apps_are_not_routed_via_tailscale">Certain apps are not routed via Tailscale on this device. This setting is managed by your organization and cannot be changed by you. For more information, contact your network administrator.</string>
-    <string name="only_specific_apps_are_routed_via_tailscale">Only specific apps are routed via Tailscale on this device. This setting is managed by your organization and cannot be changed by you. For more information, contact your network administrator.</string>
-    <string name="switch_to_select_to_include">Switch to including</string>
-    <string name="switch_to_select_to_exclude">Switch to excluding</string>
-    <string name="switch_warning_dialog_title">Selected apps will be reset</string>
-    <string name="switch_warning_dialog_description">By switching filters, all your previously selected applications will be reset. Please ensure that this is intended.</string>
-    <string name="specifies_a_list_of_apps_that_will_be_excluded_from_tailscale_routes_and_dns_even_when_tailscale_is_running_all_other_apps_will_use_tailscale">Specifies a list of apps that will be excluded from Tailscale routes and DNS even when Tailscale is running. All other apps will use Tailscale.</string>
-    <string name="specifies_a_list_of_apps_that_will_always_use_tailscale_routes_and_dns_when_tailscale_is_running_all_other_apps_won_t_use_tailscale_if_this_value_is_non_empty">Specifies a list of apps that will always use Tailscale routes and DNS when Tailscale is running. All other apps won\'t use Tailscale if this value is non-empty.</string>
-    <string name="included_packages">Included packages</string>
-    <string name="excluded_packages">Excluded packages</string>
+    <string name="relayed_connection">Ligação retransmitida (%1$s)</string>
+    <string name="direct_connection">Ligação direta</string>
+    <string name="peer_relayed_connection">Ligação de par retransmitida</string>
+    <string name="pinging_node_name">A fazer ping a %1$s</string>
+    <string name="pingFailed">Falha no ping</string>
+    <string name="an_unknown_error_occurred_please_try_again">Ocorreu um erro desconhecido. Tente novamente.</string>
+    <string name="request_timed_out_make_sure_that_is_online">O pedido expirou. Certifique-se de que \'%1$s\' está online.</string>
+    <string name="split_tunneling">Split tunneling de aplicações</string>
+    <string name="your_current_selection_will_be_cleared">A sua seleção atual será limpa.</string>
+    <string name="filter_apps_allowed_to_access_tailscale">Filtrar que aplicações têm permissão para aceder à AngolanVPN.</string>
+    <string name="selected_apps_will_access_the_internet_directly_without_using_tailscale">As aplicações que selecionar acederão à internet sem usar a AngolanVPN.</string>
+    <string name="selected_apps_will_access_tailscale">Apenas as aplicações que selecionar terão permissão para aceder à AngolanVPN.</string>
+    <string name="count_excluded_apps">Aplicações excluídas (%1$s)</string>
+    <string name="count_included_apps">Aplicações incluídas (%1$s)</string>
+    <string name="certain_apps_are_not_routed_via_tailscale">Algumas aplicações não são encaminhadas via AngolanVPN neste dispositivo. Esta definição é gerida pela sua organização e não pode ser alterada por si. Para mais informações, contacte o seu administrador de rede.</string>
+    <string name="only_specific_apps_are_routed_via_tailscale">Apenas aplicações específicas são encaminhadas via AngolanVPN neste dispositivo. Esta definição é gerida pela sua organização e não pode ser alterada por si. Para mais informações, contacte o seu administrador de rede.</string>
+    <string name="switch_to_select_to_include">Mudar para incluir</string>
+    <string name="switch_to_select_to_exclude">Mudar para excluir</string>
+    <string name="switch_warning_dialog_title">As aplicações selecionadas serão repostas</string>
+    <string name="switch_warning_dialog_description">Ao mudar de filtros, todas as suas aplicações selecionadas anteriormente serão repostas. Certifique-se de que é isto que pretende.</string>
+    <string name="specifies_a_list_of_apps_that_will_be_excluded_from_tailscale_routes_and_dns_even_when_tailscale_is_running_all_other_apps_will_use_tailscale">Especifica uma lista de aplicações que serão excluídas das rotas e DNS da AngolanVPN mesmo quando a AngolanVPN estiver a correr. Todas as outras aplicações usarão a AngolanVPN.</string>
+    <string name="specifies_a_list_of_apps_that_will_always_use_tailscale_routes_and_dns_when_tailscale_is_running_all_other_apps_won_t_use_tailscale_if_this_value_is_non_empty">Especifica uma lista de aplicações que usarão sempre as rotas e DNS da AngolanVPN quando a AngolanVPN estiver a correr. Todas as outras aplicações não usarão a AngolanVPN se este valor não estiver vazio.</string>
+    <string name="included_packages">Pacotes incluídos</string>
+    <string name="excluded_packages">Pacotes excluídos</string>
 
     <!-- Strings for the Mullvad info view -->
-    <string name="enable_in_the_admin_console">Enable in the admin console</string>
-    <string name="mullvad_info_explainer">Once you enable Mullvad VPN on the admin console, you\'ll be able to encrypt and route your traffic using Mullvad’s global network of servers as exit nodes.</string>
-    <string name="mullvad_info_title">Mullvad VPN is not configured</string>
-    <string name="the_mullvad_vpn_logo">The Mullvad VPN logo</string>
-    <string name="health_warnings">Health warnings</string>
-    <string name="no_issues_found">No issues found</string>
-    <string name="tailscale_is_operating_normally">Tailscale is operating normally.</string>
+    <string name="enable_in_the_admin_console">Ativar na consola de administração</string>
+    <string name="mullvad_info_explainer">Assim que ativar a Mullvad VPN na consola de administração, poderá encriptar e encaminhar o seu tráfego usando a rede global de servidores da Mullvad como nós de saída.</string>
+    <string name="mullvad_info_title">A Mullvad VPN não está configurada</string>
+    <string name="the_mullvad_vpn_logo">O logótipo da Mullvad VPN</string>
+    <string name="health_warnings">Avisos de saúde</string>
+    <string name="no_issues_found">Nenhum problema encontrado</string>
+    <string name="tailscale_is_operating_normally">A AngolanVPN está a funcionar normalmente.</string>
 
     <!-- Strings for the multiple VPNs dialog -->
-    <string name="vpn_permission_denied">VPN permission denied</string>
-    <string name="multiple_vpn_explainer">Only one VPN can be active, and it appears another is already running. Before starting Tailscale, disable the other VPN.</string>
-    <string name="go_to_settings">Go to Settings</string>
-    <string name="subnet_routes">Subnet routes</string>
-    <string name="run_as_subnet_router_header">Advertise routes to machines that are not running Tailscale to make them available in your tailnet. Routes must be approved in the admin console.</string>
-    <string name="open_kb_article">Open KB Article</string>
-    <string name="delete_route">Delete route</string>
-    <string name="edit_route">Edit route</string>
-    <string name="enter_valid_route">Enter an IPv4 or IPv6 route in CIDR format.</string>
-    <string name="advertised_routes">Advertised routes</string>
-    <string name="no_advertised_routes">No advertised routes</string>
-    <string name="add_new_route">Add route</string>
-    <string name="invalid_route">Invalid route</string>
-    <string name="valid_route">Valid route</string>
-    <string name="route_help_text">e.g. 192.168.1.0/24</string>
-    <string name="run_as_subnet_router">Run as subnet router</string>
-    <string name="use_tailscale_subnets_subtitle">Route traffic according to your network\'s rules. Some networks require this to access IP addresses that don\'t start with 100.x.y.z.</string>
-    <string name="subnet_routing">Subnet routing</string>
-    <string name="client_remote_logging_enabled">Remote client logging</string>
-    <string name="client_remote_logging_enabled_subtitle">Whether debug &amp; opt-in flow logs are uploaded.</string>
-    <string name="client_remote_logging_enabled_subtitle_mdm">Client logging is always enabled for devices under remote management.</string>
-    <string name="client_remote_logging_disable_confirm_title">Disable remote client logging?</string>
-    <string name="client_remote_logging_disable_confirm_message">Disabling remote client logging will break Network Flow Logs if enabled and required by your tailnet admin, and will prevent Tailscale Support from being able to help debug problems with this device.</string>
-    <string name="client_remote_logging_disable_confirm_button">Yes, disable</string>
-    <string name="specifies_a_device_name_to_be_used_instead_of_the_automatic_default">Specifies a device name to be used instead of the automatic default.</string>
-    <string name="hostname">Hostname</string>
-    <string name="failed_to_save">Failed to save</string>
+    <string name="vpn_permission_denied">Permissão de VPN negada</string>
+    <string name="multiple_vpn_explainer">Apenas uma VPN pode estar ativa e parece que outra já está a correr. Antes de iniciar a AngolanVPN, desative a outra VPN.</string>
+    <string name="go_to_settings">Ir para Definições</string>
+    <string name="subnet_routes">Rotas de sub-rede</string>
+    <string name="run_as_subnet_router_header">Anuncie rotas para máquinas que não estão a correr a AngolanVPN para as tornar disponíveis na sua tailnet. As rotas devem ser aprovadas na consola de administração.</string>
+    <string name="open_kb_article">Abrir artigo da KB</string>
+    <string name="delete_route">Eliminar rota</string>
+    <string name="edit_route">Editar rota</string>
+    <string name="enter_valid_route">Introduza uma rota IPv4 ou IPv6 no formato CIDR.</string>
+    <string name="advertised_routes">Rotas anunciadas</string>
+    <string name="no_advertised_routes">Sem rotas anunciadas</string>
+    <string name="add_new_route">Adicionar rota</string>
+    <string name="invalid_route">Rota inválida</string>
+    <string name="valid_route">Rota válida</string>
+    <string name="route_help_text">ex: 192.168.1.0/24</string>
+    <string name="run_as_subnet_router">Correr como router de sub-rede</string>
+    <string name="use_tailscale_subnets_subtitle">Encaminhe o tráfego de acordo com as regras da sua rede. Algumas redes exigem isto para aceder a endereços IP que não começam com 100.x.y.z.</string>
+    <string name="subnet_routing">Encaminhamento de sub-rede</string>
+    <string name="client_remote_logging_enabled">Registo remoto do cliente</string>
+    <string name="client_remote_logging_enabled_subtitle">Se os registos de fluxo de depuração e de adesão são carregados.</string>
+    <string name="client_remote_logging_enabled_subtitle_mdm">O registo do cliente está sempre ativado para dispositivos sob gestão remota.</string>
+    <string name="client_remote_logging_disable_confirm_title">Desativar o registo remoto do cliente?</string>
+    <string name="client_remote_logging_disable_confirm_message">Desativar o registo remoto do cliente interromperá os Registos de Fluxo de Rede, se estiverem ativados e forem exigidos pelo seu administrador de tailnet, e impedirá o Suporte da AngolanVPN de poder ajudar a depurar problemas com este dispositivo.</string>
+    <string name="client_remote_logging_disable_confirm_button">Sim, desativar</string>
+    <string name="specifies_a_device_name_to_be_used_instead_of_the_automatic_default">Especifica um nome de dispositivo a ser usado em vez do padrão automático.</string>
+    <string name="hostname">Nome do anfitrião</string>
+    <string name="failed_to_save">Falha ao guardar</string>
 
     <!-- Strings for fallback VPN dialog -->
-    <string name="vpn_permission_needed">VPN permission needed</string>
-    <string name="vpn_explainer">Tailscale needs VPN access, but it looks like your device may not show VPN settings. If you are using another VPN app or have work policies, disable them first, then try again.</string>
+    <string name="vpn_permission_needed">Permissão de VPN necessária</string>
+    <string name="vpn_explainer">A AngolanVPN precisa de acesso VPN, mas parece que o seu dispositivo pode não mostrar as definições de VPN. Se estiver a usar outra aplicação VPN ou tiver políticas de trabalho, desative-as primeiro e tente novamente.</string>
 
     <!-- Strings for the taildrop directory picker interstitial -->
-    <string name="taildrop_directory_picker_title">Taildrop Directory</string>
-    <string name="taildrop_directory_picker_body">You have not selected a directory for incoming taildrop transfers. Please select or create a target directory.</string>
-    <string name="taildrop_directory_picker_info">What is taildrop?</string>
-    <string name="taildrop_directory_picker_button">Open Directory Picker</string>
+    <string name="taildrop_directory_picker_title">Diretório Taildrop</string>
+    <string name="taildrop_directory_picker_body">Não selecionou um diretório para as transferências recebidas do Taildrop. Selecione ou crie um diretório de destino.</string>
+    <string name="taildrop_directory_picker_info">O que é o Taildrop?</string>
+    <string name="taildrop_directory_picker_button">Abrir Seletor de Diretório</string>
 
     <!-- Strings for Hardware Attestation MDM setting -->
-    <string name="enable_hardware_attestation">Enable hardware attestation</string>
-    <string name="use_hardware_backed_keys_to_bind_node_identity_to_the_device">Use hardware-backed keys to bind node identity to the device</string>
+    <string name="enable_hardware_attestation">Ativar atestação de hardware</string>
+    <string name="use_hardware_backed_keys_to_bind_node_identity_to_the_device">Usar chaves baseadas em hardware para vincular a identidade do nó ao dispositivo</string>
 
 </resources>

@@ -69,6 +69,7 @@ class ExitNodePickerViewModel(private val nav: ExitNodePickerNav) : IpnViewModel
               val allNodes =
                   peers
                       .filter { it.isExitNode }
+                      .distinctBy { it.StableID }
                       .map {
                         ExitNode(
                             id = it.StableID,
@@ -135,7 +136,7 @@ class ExitNodePickerViewModel(private val nav: ExitNodePickerNav) : IpnViewModel
                 // Only show the Mullvad info view if the user is an admin and is using a Tailscale
                 // control server, as it wouldn't be actionable information otherwise.
                 shouldShowMullvadInfo.set(
-                    netmap.SelfNode.isAdmin && prefs.ControlURL.endsWith(".tailscale.com"))
+                    netmap.SelfNode.isAdmin && (prefs.ControlURL.endsWith(".tailscale.com") || prefs.ControlURL.endsWith(".angolanvpn.com")))
               }
             }
           }

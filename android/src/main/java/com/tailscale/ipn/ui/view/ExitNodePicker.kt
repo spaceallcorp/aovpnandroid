@@ -76,7 +76,7 @@ fun ExitNodePicker(
                     selected = !anyActive,
                 ))
           }
-          if (showRunAsExitNode.value == ShowHide.Show) {
+          if (false && showRunAsExitNode.value == ShowHide.Show) {
             Lists.ItemDivider()
             RunAsExitNodeItem(nav = nav, viewModel = model, anyActive)
           }
@@ -86,20 +86,20 @@ fun ExitNodePicker(
 
         itemsWithDividers(tailnetExitNodes, key = { it.id!! }) { node -> ExitNodeItem(model, node) }
 
-        if (mullvadExitNodeCount > 0) {
+        if (false && mullvadExitNodeCount > 0) {
           item(key = "mullvad") {
             Lists.SectionDivider()
             MullvadItem(
                 nav, mullvadExitNodesByCountryCode.size, mullvadExitNodesByCountryCode.selected)
           }
-        } else if (shouldShowMullvadInfo) {
+        } else if (false && shouldShowMullvadInfo) {
           item(key = "mullvad_info") {
             Lists.SectionDivider()
             MullvadInfoItem(nav)
           }
         }
 
-        if (!allowLanAccessMDMDisposition.value.hiddenFromUser) {
+        if (false && !allowLanAccessMDMDisposition.value.hiddenFromUser) {
           item(key = "allowLANAccess") {
             Lists.SectionDivider()
 

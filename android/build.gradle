@@ -33,11 +33,12 @@ apply plugin: 'com.ncorti.ktfmt.gradle'
 
 android {
     ndkVersion "23.1.7779620"
-    compileSdkVersion 34
+    compileSdkVersion 36
     defaultConfig {
+        applicationId "com.angolanvpn.client"
         minSdkVersion 26
-        targetSdkVersion 35
-        versionCode 615
+        targetSdkVersion 36
+        versionCode 616
         versionName getVersionProperty("VERSION_LONG")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -57,10 +58,6 @@ android {
 
     lintOptions {
         warningsAsErrors true
-    }
-
-    kotlinOptions {
-        jvmTarget = "17"
     }
 
     kotlinOptions {
@@ -105,6 +102,12 @@ android {
     }
 
     testBuildType "applicationTest"
+
+    // Automated build of the libtailscale AAR.
+    tasks.register("buildLibtailscale", Exec) {
+        commandLine "make", "-C", "..", "libtailscale"
+    }
+    preBuild.dependsOn buildLibtailscale
 }
 
 dependencies {
@@ -150,7 +153,7 @@ dependencies {
     implementation("com.patrykandpatrick.vico:compose-m3:1.15.0")
 
     // Tailscale dependencies.
-    implementation ':libtailscale@aar'
+    implementation name: 'libtailscale', ext: 'aar'
 
     // Integration Tests
     androidTestImplementation composeBom
@@ -191,7 +194,11 @@ def getVersionProperty(key) {
     // tailscale.version is created / updated by the makefile, it is in a loosely
     // Makfile/envfile format, which is also loosely a properties file format.
     //      make tailscale.version
-    def versionProps = new Properties()
-    versionProps.load(project.file('../tailscale.version').newDataInputStream())
-    return versionProps.getProperty(key).replaceAll('^\"|\"$', '')
+    try {
+        def versionProps = new Properties()
+        versionProps.load(project.file('../tailscale.version').newDataInputStream())
+        return versionProps.getProperty(key)?.replaceAll('^\"|\"$', '') ?: "0.0.0-unknown"
+    } catch (Throwable ignored) {
+        return "0.0.0-unknown"
+    }
 }

@@ -41,6 +41,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.tailscale.ipn.R
+import com.tailscale.ipn.ui.Links
 import com.tailscale.ipn.ui.util.Lists
 import com.tailscale.ipn.ui.util.itemsWithDividers
 import com.tailscale.ipn.ui.util.set
@@ -71,13 +72,15 @@ fun UserSwitcherView(nav: UserSwitcherNav, viewModel: UserSwitcherViewModel = vi
             R.string.accounts,
             onBack = nav.backToSettings,
             actions = {
-              Row {
-                FusMenu(
-                    viewModel = viewModel,
-                    onAuthKeyClick = nav.onNavigateToAuthKey,
-                    onCustomClick = nav.onNavigateCustomControl)
-                IconButton(onClick = { viewModel.showHeaderMenu.set(!showHeaderMenu) }) {
-                  Icon(Icons.Default.MoreVert, "menu")
+              if (false) {
+                Row {
+                  FusMenu(
+                      viewModel = viewModel,
+                      onAuthKeyClick = nav.onNavigateToAuthKey,
+                      onCustomClick = nav.onNavigateCustomControl)
+                  IconButton(onClick = { viewModel.showHeaderMenu.set(!showHeaderMenu) }) {
+                    Icon(Icons.Default.MoreVert, "menu")
+                  }
                 }
               }
             })
@@ -153,9 +156,11 @@ fun UserSwitcherView(nav: UserSwitcherNav, viewModel: UserSwitcherViewModel = vi
                         })
                   }
 
-                  Lists.SectionDivider()
-                  Setting.Text(R.string.delete_tailnet, destructive = true) {
-                    showDeleteDialog = true
+                  if (false) {
+                    Lists.SectionDivider()
+                    Setting.Text(R.string.delete_tailnet, destructive = true) {
+                      showDeleteDialog = true
+                    }
                   }
                 }
               }
@@ -177,7 +182,7 @@ fun UserSwitcherView(nav: UserSwitcherNav, viewModel: UserSwitcherViewModel = vi
           TextButton(
               onClick = {
                 val intent =
-                    Intent(Intent.ACTION_VIEW, Uri.parse("https://tailscale.com/contact/support"))
+                    Intent(Intent.ACTION_VIEW, Uri.parse(Links.SUPPORT_URL))
                 context.startActivity(intent)
                 showDeleteDialog = false
               }) {
@@ -204,18 +209,20 @@ fun FusMenu(
       expanded = expanded,
       onDismissRequest = { viewModel.showHeaderMenu.set(false) },
       modifier = Modifier.background(MaterialTheme.colorScheme.surfaceContainer)) {
-        MenuItem(
-            onClick = {
-              onCustomClick()
-              viewModel.showHeaderMenu.set(false)
-            },
-            text = stringResource(id = R.string.custom_control_menu))
-        MenuItem(
-            onClick = {
-              onAuthKeyClick()
-              viewModel.showHeaderMenu.set(false)
-            },
-            text = stringResource(id = R.string.auth_key_menu))
+        if (false) {
+          MenuItem(
+              onClick = {
+                onCustomClick()
+                viewModel.showHeaderMenu.set(false)
+              },
+              text = stringResource(id = R.string.custom_control_menu))
+          MenuItem(
+              onClick = {
+                onAuthKeyClick()
+                viewModel.showHeaderMenu.set(false)
+              },
+              text = stringResource(id = R.string.auth_key_menu))
+        }
       }
 }
 
@@ -228,7 +235,7 @@ fun OwnerDeleteDialogText() {
   val annotatedText = buildAnnotatedString {
     append(part1 + " ")
 
-    pushLink(LinkAnnotation.Url("https://login.tailscale.com/admin/settings/general"))
+    pushLink(LinkAnnotation.Url(Links.ADMIN_URL + "/settings/general"))
     withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.primary)) {
       append("Settings > General")
     }

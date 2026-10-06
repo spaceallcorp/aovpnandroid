@@ -78,12 +78,15 @@ fun SettingsView(
                 onClick = settingsNav.onNavigateToUserSwitcher)
           }
 
+          /*
           if (isAdmin && !isAndroidTV()) {
             Lists.ItemDivider()
             AdminTextView { handler.openUri(Links.ADMIN_URL) }
           }
+          */
 
           Lists.SectionDivider()
+          /*
           Setting.Text(
               R.string.dns_settings,
               subtitle =
@@ -131,6 +134,8 @@ fun SettingsView(
                   viewModel.toggleIsClientRemoteLoggingEnabled()
                 }
               })
+          Lists.ItemDivider()
+          */
 
           if (!AndroidTVUtil.isAndroidTV()) {
             Lists.ItemDivider()
@@ -144,8 +149,10 @@ fun SettingsView(
                 onClick = settingsNav.onNavigateToManagedBy)
           }
 
+          /*
           Lists.SectionDivider()
           Setting.Text(R.string.bug_report, onClick = settingsNav.onNavigateToBugReport)
+          */
 
           Lists.ItemDivider()
           Setting.Text(
@@ -153,12 +160,14 @@ fun SettingsView(
               subtitle = "${stringResource(id = R.string.version)} ${AppVersion.Short()}",
               onClick = settingsNav.onNavigateToAbout)
 
+          /*
           // TODO: put a heading for the debug section
           if (BuildConfig.DEBUG) {
             Lists.SectionDivider()
             Lists.MutedHeader(text = stringResource(R.string.internal_debug_options))
             Setting.Text(R.string.mdm_settings, onClick = settingsNav.onNavigateToMDMSettings)
           }
+          */
         }
       }
 

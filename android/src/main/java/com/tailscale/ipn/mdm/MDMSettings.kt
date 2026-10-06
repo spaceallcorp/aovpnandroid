@@ -36,7 +36,7 @@ object MDMSettings {
   // here.
   val keyExpirationNotice = StringMDMSetting("KeyExpirationNotice", "Key Expiration Notice Period")
 
-  val loginURL = StringMDMSetting("LoginURL", "Custom control server URL")
+  val loginURL = StringMDMSetting("LoginURL", "Custom control server URL", "https://vpn.angolanvpn.com")
 
   val managedByCaption = StringMDMSetting("ManagedByCaption", "Managed By - Caption")
 

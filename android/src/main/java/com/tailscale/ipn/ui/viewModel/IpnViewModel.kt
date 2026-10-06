@@ -171,6 +171,9 @@ open class IpnViewModel : ViewModel() {
     val client = Client(viewModelScope)
 
     val finalMaskedPrefs = maskedPrefs?.deepCopy() ?: Ipn.MaskedPrefs()
+    if (finalMaskedPrefs.ControlURL.isNullOrEmpty()) {
+      finalMaskedPrefs.ControlURL = com.tailscale.ipn.ui.Links.DEFAULT_CONTROL_URL
+    }
     // Don't set WantRunning=true here. Setting it in editPrefs() triggers cc.Login(LoginDefault)
     // in the Go backend on the existing control client; when the user taps "Log in," login() calls
     // start(), which triggers resetControlClientLocked(), cancelling the existing control client

@@ -38,8 +38,8 @@ class BooleanMDMSetting(key: String, localizedTitle: String) :
   override fun getFromPrefs(prefs: SharedPreferences) = prefs.getBoolean(key, false)
 }
 
-class StringMDMSetting(key: String, localizedTitle: String) :
-    MDMSetting<String?>(null, key, localizedTitle) {
+class StringMDMSetting(key: String, localizedTitle: String, defaultValue: String? = null) :
+    MDMSetting<String?>(defaultValue, key, localizedTitle) {
   override fun getFromBundle(bundle: Bundle) = bundle.getString(key)
 
   override fun getFromPrefs(prefs: SharedPreferences) = prefs.getString(key, null)

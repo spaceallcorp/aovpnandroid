@@ -32,7 +32,9 @@ class PeerCategorizer {
 
     val me = netmap.currentUserProfile()
 
-    for (peer in (peers + selfNode)) {
+    val allNodes = (peers + selfNode).distinctBy { it.StableID }
+
+    for (peer in allNodes) {
 
       val userId = peer.User
       val profile = netmap.userProfile(userId)

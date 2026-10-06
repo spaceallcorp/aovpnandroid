@@ -58,7 +58,7 @@ fun AppTheme(useDarkTheme: Boolean = isSystemInDarkTheme(), content: @Composable
 
 private val LightColors =
     lightColorScheme(
-        primary = Color(0xFF4B70CC), // blue-500
+        primary = Color(0xFF00205B), // blue-500
         onPrimary = Color(0xFFFFFFFF), // white
         primaryContainer = Color(0xFFF0F5FF), // blue-0
         onPrimaryContainer = Color(0xFF3E5DB3), // blue-600
@@ -87,7 +87,7 @@ private val LightColors =
 
 private val DarkColors =
     darkColorScheme(
-        primary = Color(0xFF3E5DB3), // blue-600
+        primary = Color(0xFF00205B), // blue-600
         onPrimary = Color(0xFFFFFFFF), // white
         primaryContainer = Color(0xFFf0f5ff), // blue-0
         onPrimaryContainer = Color(0xFF5A82DC), // blue-400
@@ -316,13 +316,13 @@ val ColorScheme.secondaryButton: ButtonColors
     val defaults = ButtonDefaults.buttonColors()
     if (isSystemInDarkTheme()) {
       return ButtonColors(
-          containerColor = Color(0xFF4B70CC), // blue-500
+              containerColor = Color(0xFF01E7CC), // blue-500
           contentColor = Color(0xFFFFFFFF), // white
           disabledContainerColor = defaults.disabledContainerColor,
           disabledContentColor = defaults.disabledContentColor)
     } else {
       return ButtonColors(
-          containerColor = Color(0xFF5A82DC), // blue-400
+          containerColor = Color(0xFF01E7CC), // blue-400
           contentColor = Color(0xFFFFFFFF), // white
           disabledContainerColor = defaults.disabledContainerColor,
           disabledContentColor = defaults.disabledContentColor)
@@ -380,9 +380,9 @@ val ColorScheme.logoBackground: Color
   @Composable
   get() =
       if (isSystemInDarkTheme()) {
-        Color(0xFFFFFFFF) // white
+        Color(0xFF01E7CC) // white
       } else {
-        Color(0xFF1F1E1E)
+        Color(0xFF00205B)
       }
 
 val ColorScheme.standaloneLogoDotEnabled: Color

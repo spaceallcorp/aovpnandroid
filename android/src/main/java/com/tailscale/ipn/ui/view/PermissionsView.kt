@@ -56,7 +56,7 @@ fun PermissionsView(
               if (granted) Text(stringResource(R.string.on)) else Text(stringResource(R.string.off))
             })
       }
-
+/*
       item {
         ListItem(
             modifier = Modifier.clickable { navToTaildropDirView() },
@@ -80,7 +80,7 @@ fun PermissionsView(
 
               Text(displayPath)
             })
-      }
+      } */
     }
   }
 }

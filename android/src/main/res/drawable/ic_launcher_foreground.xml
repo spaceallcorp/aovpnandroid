@@ -1,38 +1,56 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="108dp"
-    android:height="108dp"
-    android:viewportWidth="108"
-    android:viewportHeight="108">
-  <path
-      android:pathData="M34.5,39.37a4.87,4.88 0,1 0,9.75 0a4.87,4.88 0,1 0,-9.75 0z"
-      android:fillColor="#ffffff"
-      android:fillAlpha="0.4"/>
-  <path
-      android:pathData="M49.13,39.37a4.87,4.88 0,1 0,9.75 0a4.87,4.88 0,1 0,-9.75 0z"
-      android:fillColor="#ffffff"
-      android:fillAlpha="0.4"/>
-  <path
-      android:pathData="M63.75,39.37a4.87,4.88 0,1 0,9.75 0a4.87,4.88 0,1 0,-9.75 0z"
-      android:fillColor="#ffffff"
-      android:fillAlpha="0.4"/>
-  <path
-      android:pathData="M34.5,54a4.87,4.88 0,1 0,9.75 0a4.87,4.88 0,1 0,-9.75 0z"
-      android:fillColor="#ffffff"/>
-  <path
-      android:pathData="M49.13,54a4.87,4.88 0,1 0,9.75 0a4.87,4.88 0,1 0,-9.75 0z"
-      android:fillColor="#ffffff"/>
-  <path
-      android:pathData="M63.75,54a4.87,4.88 0,1 0,9.75 0a4.87,4.88 0,1 0,-9.75 0z"
-      android:fillColor="#ffffff"/>
-  <path
-      android:pathData="M34.5,68.62a4.87,4.88 0,1 0,9.75 0a4.87,4.88 0,1 0,-9.75 0z"
-      android:fillColor="#ffffff"
-      android:fillAlpha="0.4"/>
-  <path
-      android:pathData="M49.13,68.62a4.87,4.88 0,1 0,9.75 0a4.87,4.88 0,1 0,-9.75 0z"
-      android:fillColor="#ffffff"/>
-  <path
-      android:pathData="M63.75,68.62a4.87,4.88 0,1 0,9.75 0a4.87,4.88 0,1 0,-9.75 0z"
-      android:fillColor="#ffffff"
-      android:fillAlpha="0.4"/>
-</vector>
+        android:width="108dp"
+        android:height="108dp"
+        android:viewportWidth="108"
+        android:viewportHeight="108">
+
+    <!-- Círculo cinza -->
+    <path
+        android:pathData="M54,4
+        A50,50 0 1,1 54,104
+        A50,50 0 1,1 54,4"
+        android:fillColor="#18D9D0"/>
+
+    <!-- Moldura quadrada -->
+    <path
+        android:pathData="M35,36
+        C30,36 26,40 26,45
+        L26,72
+        C26,77 30,82 35,82
+        L69,82
+        C74,82 79,77 79,72
+        L79,55"
+        android:fillColor="#00000000"
+        android:strokeColor="#00155c"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+
+    <!-- Parte superior da moldura -->
+    <path
+        android:pathData="M26,45
+        C26,40 30,36 35,36
+        L51,36"
+        android:fillColor="#00000000"
+        android:strokeColor="#00155c"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"/>
+
+    <!-- Seta diagonal -->
+    <path
+        android:pathData="M52,54 L82,24"
+        android:fillColor="#00000000"
+        android:strokeColor="#00155c"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"/>
+
+    <!-- Cabeça da seta -->
+    <path
+        android:pathData="M66,24 L82,24 L82,40"
+        android:fillColor="#00000000"
+        android:strokeColor="#00155c"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+
+    </vector>

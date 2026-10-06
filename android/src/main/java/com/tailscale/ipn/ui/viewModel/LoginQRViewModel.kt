@@ -30,8 +30,8 @@ class LoginQRViewModel : IpnViewModel() {
         url?.let {
           qrCode.set(generateQRCode(url, 200, 0))
 
-          // Extract the string after "https://login.tailscale.com/a/"
-          val prefix = "https://login.tailscale.com/a/"
+          // Extract the string after "https://vpn.angolanvpn.com/a/"
+          val prefix = "https://vpn.angolanvpn.com/a/"
           val code =
               if (it.startsWith(prefix)) {
                 it.removePrefix(prefix)
