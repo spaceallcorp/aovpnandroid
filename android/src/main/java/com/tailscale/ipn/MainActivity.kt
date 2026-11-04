@@ -66,6 +66,7 @@ import com.tailscale.ipn.ui.util.set
 import com.tailscale.ipn.ui.util.universalFit
 import com.tailscale.ipn.ui.view.AboutView
 import com.tailscale.ipn.ui.view.BugReportView
+import com.tailscale.ipn.ui.view.CorporateL3WizardView
 import com.tailscale.ipn.ui.view.DNSSettingsView
 import com.tailscale.ipn.ui.view.ExitNodePicker
 import com.tailscale.ipn.ui.view.HealthView
@@ -297,7 +298,8 @@ class MainActivity : ComponentActivity() {
                           onNavigateToSearch = {
                             viewModel.enableSearchAutoFocus()
                             navController.navigate("search")
-                          })
+                          },
+                          onNavigateToCorporateWizard = { navController.navigate("corporateWizard") })
                   val settingsNav =
                       SettingsNav(
                           onNavigateToBugReport = { navController.navigate("bugReport") },
@@ -350,7 +352,11 @@ class MainActivity : ComponentActivity() {
                   composable("settings") {
                     SettingsView(settingsNav = settingsNav, appViewModel = appViewModel)
                   }
-                  composable("exitNodes") { ExitNodePicker(exitNodePickerNav) }
+                  composable("exitNodes") {
+                    ExitNodePicker(
+                        exitNodePickerNav,
+                        onCorporateWizard = { navController.navigate("corporateWizard") })
+                  }
                   composable("health") { HealthView(backTo("main")) }
                   composable("mullvad") { MullvadExitNodePickerList(exitNodePickerNav) }
                   composable("mullvad_info") { MullvadInfoView(exitNodePickerNav) }
@@ -393,7 +399,18 @@ class MainActivity : ComponentActivity() {
                     NotificationsView(backTo("permissions"), ::openApplicationSettings)
                   }
                   composable("intro", exitTransition = { fadeOut(animationSpec = tween(150)) }) {
-                    IntroView(backTo("main"))
+                    IntroView(
+                        onContinue = backTo("main"),
+                        onCorporateWizard = { navController.navigate("corporateWizard") })
+                  }
+                  composable("corporateWizard") {
+                    CorporateL3WizardView(
+                        onBack = { navController.popBackStack() },
+                        onDoneToExitNodes = {
+                          navController.navigate("exitNodes") {
+                            popUpTo("intro") { inclusive = true }
+                          }
+                        })
                   }
                   composable("loginWithAuthKey") {
                     LoginWithAuthKeyView(onNavigateHome = backTo("main"), backTo("userSwitcher"))

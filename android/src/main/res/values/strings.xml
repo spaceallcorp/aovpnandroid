@@ -38,7 +38,7 @@
     <string name="acknowledgements">Agradecimentos</string>
     <string name="privacy_policy">Política de Privacidade</string>
     <string name="terms_of_service">Termos de Serviço</string>
-    <string name="about_view_footnotes">WireGuard is a registered trademark of Jason A. Donenfeld.\n\n© 2024 AngolanVPN. Todos os direitos reservados.</string>
+    <string name="about_view_footnotes">WireGuard is a registered trademark of Jason A. Donenfeld.\n\n© 2026 AngolanVPN. Todos os direitos reservados.</string>
     <string name="managed_by">Gerido por</string>
 
     <!-- Strings for the bug reporting screen -->
@@ -67,7 +67,7 @@
     <string name="connect_to_tailnet_prefix">"Ligue-se novamente para comunicar com os outros dispositivos na "</string>
     <string name="connect_to_tailnet_suffix">" tailnet."</string>
     <string name="welcome_to_tailscale">Bem-vindo à AngolanVPN</string>
-    <string name="login_to_join_your_tailnet">Faça login para se ligar seu ENaaS da AngolanVPN.</string>
+    <string name="login_to_join_your_tailnet">Faça login para conectar-se a um servidor em Angola</string>
     <string name="give_permissions">Configure uma ligação ENaaS para começar a usar a AngolanVPN.</string>
     <string name="keyExpiryExplainer">Autentique-se novamente para permanecer ligado à AngolanVPN.</string>
     <string name="deviceKeyNeverExpires">A chave do dispositivo nunca expira</string>

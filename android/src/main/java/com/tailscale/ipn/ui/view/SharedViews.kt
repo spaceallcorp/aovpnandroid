@@ -23,6 +23,7 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -72,8 +73,10 @@ fun Header(
         title?.let { title() }
             ?: Text(
                 stringResource(titleRes),
-                style = MaterialTheme.typography.titleLarge,
-                color = MaterialTheme.colorScheme.onSurface)
+                style =
+                    MaterialTheme.typography.titleMedium.copy(
+                        fontWeight = FontWeight.Bold,
+                        color = com.tailscale.ipn.ui.theme.SpaceTextPrimary))
       },
       colors = MaterialTheme.colorScheme.topAppBar,
       actions = actions,
@@ -108,6 +111,7 @@ fun BackArrow(action: () -> Unit, focusRequester: FocusRequester) {
     Icon(
         Icons.AutoMirrored.Filled.ArrowBack,
         contentDescription = "Go back to the previous screen",
+        tint = com.tailscale.ipn.ui.theme.SpaceEmeraldPrimary,
         modifier = iconModifier)
   }
 }

@@ -63,8 +63,9 @@ fun UserView(
           supportingContent = {
             Column {
               AutoResizingText(
-                  text = profile.NetworkProfile?.tailnetNameForDisplay() ?: "",
+                  text = "você está autenticado",
                   style = MaterialTheme.typography.bodyMedium.short,
+                  color = com.tailscale.ipn.ui.theme.SpaceEmeraldLight,
                   minFontSize = MaterialTheme.typography.minTextSize,
                   overflow = TextOverflow.Ellipsis)
 

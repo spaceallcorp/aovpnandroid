@@ -3,15 +3,20 @@
 package com.tailscale.ipn.ui.view
 
 import android.os.Build
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -33,7 +38,15 @@ import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Surface
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -121,6 +134,7 @@ data class MainViewNavigation(
     val onNavigateToExitNodes: () -> Unit,
     val onNavigateToHealth: () -> Unit,
     val onNavigateToSearch: () -> Unit,
+    val onNavigateToCorporateWizard: () -> Unit = {},
 )
 
 @OptIn(ExperimentalPermissionsApi::class, ExperimentalMaterial3Api::class)
@@ -221,6 +235,7 @@ fun MainView(
                 if (showExitNodePicker.value == ShowHide.Show) {
                   ExitNodeStatus(
                       navAction = navigation.onNavigateToExitNodes, viewModel = viewModel)
+                  CorporateCtaCard(onCorporateWizard = navigation.onNavigateToCorporateWizard)
                 }
                 /*
                 PeerList(
@@ -322,23 +337,25 @@ fun ExitNodeStatus(navAction: () -> Unit, viewModel: MainViewModel) {
         }
         Box(
             modifier =
-                Modifier.padding(start = 16.dp, end = 16.dp, top = 4.dp, bottom = 16.dp)
-                    .clip(shape = RoundedCornerShape(10.dp, 10.dp, 10.dp, 10.dp))
+                Modifier.padding(start = 16.dp, end = 16.dp, top = 4.dp, bottom = 8.dp)
+                    .clip(shape = RoundedCornerShape(16.dp))
+                    .border(
+                        1.dp,
+                        if (nodeState == NodeState.ACTIVE_AND_RUNNING)
+                            com.tailscale.ipn.ui.theme.SpaceEmeraldPrimary
+                        else com.tailscale.ipn.ui.theme.SpaceDarkBorder,
+                        RoundedCornerShape(16.dp))
+                    .background(com.tailscale.ipn.ui.theme.SpaceDarkCard)
                     .fillMaxWidth()) {
               ListItem(
                   modifier = Modifier.clickable { navAction() },
                   colors =
-                      when (nodeState) {
-                        NodeState.ACTIVE_AND_RUNNING -> MaterialTheme.colorScheme.primaryListItem
-                        NodeState.ACTIVE_NOT_RUNNING -> MaterialTheme.colorScheme.listItem
-                        NodeState.RUNNING_AS_EXIT_NODE -> MaterialTheme.colorScheme.warningListItem
-                        NodeState.OFFLINE_ENABLED -> MaterialTheme.colorScheme.errorListItem
-                        NodeState.OFFLINE_DISABLED -> MaterialTheme.colorScheme.errorListItem
-                        NodeState.OFFLINE_MDM -> MaterialTheme.colorScheme.errorListItem
-                        else ->
-                            ListItemDefaults.colors(
-                                containerColor = MaterialTheme.colorScheme.surface)
-                      },
+                      ListItemDefaults.colors(
+                          containerColor = com.tailscale.ipn.ui.theme.SpaceDarkCard,
+                          headlineColor = com.tailscale.ipn.ui.theme.SpaceTextPrimary,
+                          overlineColor = com.tailscale.ipn.ui.theme.SpaceEmeraldLight,
+                          supportingColor = com.tailscale.ipn.ui.theme.SpaceTextSecondary,
+                          trailingIconColor = com.tailscale.ipn.ui.theme.SpaceEmeraldPrimary),
                   overlineContent = {
                     Text(
                         text =
@@ -346,8 +363,10 @@ fun ExitNodeStatus(navAction: () -> Unit, viewModel: MainViewModel) {
                                 nodeState == NodeState.OFFLINE_DISABLED ||
                                 nodeState == NodeState.OFFLINE_MDM)
                                 stringResource(R.string.exit_node_offline)
-                            else stringResource(R.string.exit_node),
-                        style = MaterialTheme.typography.bodySmall,
+                            else "NÓ DE SAÍDA SELECIONADO",
+                        style =
+                            MaterialTheme.typography.labelSmall.copy(
+                                fontWeight = FontWeight.Bold, letterSpacing = 1.sp),
                     )
                   },
                   headlineContent = {
@@ -360,17 +379,16 @@ fun ExitNodeStatus(navAction: () -> Unit, viewModel: MainViewModel) {
                                     stringResource(id = R.string.running_exit_node)
                                 else -> name ?: ""
                               },
-                          style = MaterialTheme.typography.bodyMedium,
+                          style =
+                              MaterialTheme.typography.titleMedium.copy(
+                                  fontWeight = FontWeight.Bold,
+                                  color = com.tailscale.ipn.ui.theme.SpaceTextPrimary),
                           maxLines = 1,
                           overflow = TextOverflow.Ellipsis)
                       Icon(
                           imageVector = Icons.Outlined.ArrowDropDown,
                           contentDescription = null,
-                          tint =
-                              if (nodeState == NodeState.NONE)
-                                  MaterialTheme.colorScheme.onSurfaceVariant
-                              else MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.7f),
-                      )
+                          tint = com.tailscale.ipn.ui.theme.SpaceEmeraldPrimary)
                     }
                   },
                   trailingContent = {
@@ -430,6 +448,45 @@ fun StartingView() {
 }
 
 @Composable
+fun LuandaNetworkBackgroundCanvas(modifier: Modifier = Modifier) {
+  Canvas(modifier = modifier) {
+    val w = size.width
+    val h = size.height
+
+    val gridColor = Color(0xFF0F264A).copy(alpha = 0.35f)
+    for (i in 1..10) {
+      drawLine(gridColor, Offset(0f, h * (i / 10f)), Offset(w, h * (i / 10f)), strokeWidth = 1f)
+      drawLine(gridColor, Offset(w * (i / 10f), 0f), Offset(w * (i / 10f), h), strokeWidth = 1f)
+    }
+
+    val pathColor = Color(0xFF10B981).copy(alpha = 0.6f)
+    val strokeWidth = 2.5f
+
+    drawLine(pathColor, Offset(w * 0.15f, h * 0.35f), Offset(w * 0.35f, h * 0.25f), strokeWidth = strokeWidth)
+    drawLine(pathColor, Offset(w * 0.35f, h * 0.25f), Offset(w * 0.55f, h * 0.40f), strokeWidth = strokeWidth)
+    drawLine(pathColor, Offset(w * 0.55f, h * 0.40f), Offset(w * 0.75f, h * 0.30f), strokeWidth = strokeWidth)
+    drawLine(pathColor, Offset(w * 0.35f, h * 0.25f), Offset(w * 0.40f, h * 0.65f), strokeWidth = strokeWidth)
+    drawLine(pathColor, Offset(w * 0.40f, h * 0.65f), Offset(w * 0.65f, h * 0.75f), strokeWidth = strokeWidth)
+    drawLine(pathColor, Offset(w * 0.65f, h * 0.75f), Offset(w * 0.85f, h * 0.60f), strokeWidth = strokeWidth)
+
+    val nodePositions = listOf(
+        Offset(w * 0.15f, h * 0.35f),
+        Offset(w * 0.35f, h * 0.25f),
+        Offset(w * 0.55f, h * 0.40f),
+        Offset(w * 0.75f, h * 0.30f),
+        Offset(w * 0.40f, h * 0.65f),
+        Offset(w * 0.65f, h * 0.75f),
+        Offset(w * 0.85f, h * 0.60f)
+    )
+
+    nodePositions.forEach { pos ->
+      drawCircle(Color(0xFF10B981).copy(alpha = 0.2f), radius = 14f, center = pos)
+      drawCircle(Color(0xFF10B981), radius = 5f, center = pos)
+    }
+  }
+}
+
+@Composable
 fun ConnectView(
     state: Ipn.State,
     isPrepared: Boolean,
@@ -446,98 +503,126 @@ fun ConnectView(
       showVPNPermissionLauncher()
     }
   }
-  Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.fillMaxWidth()) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
-      Column(
-          modifier = Modifier.padding(8.dp).fillMaxWidth(0.7f).fillMaxHeight(),
-          verticalArrangement = Arrangement.spacedBy(8.dp, alignment = Alignment.CenterVertically),
-          horizontalAlignment = Alignment.CenterHorizontally,
-      ) {
-        if (!isPrepared) {
-          TailscaleLogoView(modifier = Modifier.size(50.dp))
-          Spacer(modifier = Modifier.size(1.dp))
-          Text(
-              text = stringResource(id = R.string.welcome_to_tailscale),
-              style = MaterialTheme.typography.titleMedium,
-              textAlign = TextAlign.Center)
-          Text(
-              stringResource(R.string.give_permissions),
-              style = MaterialTheme.typography.titleSmall,
-              textAlign = TextAlign.Center)
-          Spacer(modifier = Modifier.size(1.dp))
-          PrimaryActionButton(onClick = connectAction) {
+  Box(modifier = Modifier.fillMaxSize().background(com.tailscale.ipn.ui.theme.SpaceDarkBg)) {
+    Image(
+        painter = painterResource(id = R.drawable.cover),
+        contentDescription = null,
+        contentScale = ContentScale.Crop,
+        modifier = Modifier.fillMaxSize())
+
+    Box(
+        modifier =
+            Modifier.fillMaxSize()
+                .background(
+                    androidx.compose.ui.graphics.Brush.verticalGradient(
+                        colors =
+                            listOf(
+                                com.tailscale.ipn.ui.theme.SpaceDarkBg.copy(alpha = 0.75f),
+                                com.tailscale.ipn.ui.theme.SpaceDarkBg.copy(alpha = 0.9f),
+                                com.tailscale.ipn.ui.theme.SpaceDarkBg))))
+
+    Row(
+        horizontalArrangement = Arrangement.Center,
+        modifier = Modifier.fillMaxWidth().align(Alignment.Center)) {
+      Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
+        Column(
+            modifier = Modifier.padding(8.dp).fillMaxWidth(0.85f).fillMaxHeight(),
+            verticalArrangement = Arrangement.spacedBy(12.dp, alignment = Alignment.CenterVertically),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+          if (!isPrepared) {
+            Spacer(modifier = Modifier.size(8.dp))
             Text(
-                text = stringResource(id = R.string.connect),
-                fontSize = MaterialTheme.typography.titleMedium.fontSize)
-          }
-        } else if (state == Ipn.State.NeedsMachineAuth) {
-          Icon(
-              modifier = Modifier.size(40.dp),
-              imageVector = Icons.Outlined.Lock,
-              contentDescription = "Device requires authentication")
-          Text(
-              text = stringResource(id = R.string.machine_auth_required),
-              style = MaterialTheme.typography.titleMedium,
-              textAlign = TextAlign.Center)
-          Text(
-              text = stringResource(id = R.string.machine_auth_explainer),
-              style = MaterialTheme.typography.bodyMedium,
-              textAlign = TextAlign.Center)
-          Spacer(modifier = Modifier.size(1.dp))
-          selfNode?.let {
-            PrimaryActionButton(onClick = { loginAtUrlAction(it.nodeAdminUrl) }) {
+                text = stringResource(id = R.string.welcome_to_tailscale),
+                style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
+                color = com.tailscale.ipn.ui.theme.SpaceTextPrimary,
+                textAlign = TextAlign.Center)
+            Text(
+                stringResource(R.string.give_permissions),
+                style = MaterialTheme.typography.titleSmall,
+                color = com.tailscale.ipn.ui.theme.SpaceTextSecondary,
+                textAlign = TextAlign.Center)
+            Spacer(modifier = Modifier.size(4.dp))
+            PrimaryActionButton(onClick = connectAction) {
               Text(
-                  text = stringResource(id = R.string.open_admin_console),
+                  text = stringResource(id = R.string.connect),
                   fontSize = MaterialTheme.typography.titleMedium.fontSize)
             }
-          }
-        } else if (state != Ipn.State.NeedsLogin && user != null && !user.isEmpty()) {
-          Icon(
-              painter = painterResource(id = R.drawable.power),
-              contentDescription = null,
-              modifier = Modifier.size(40.dp),
-              tint = MaterialTheme.colorScheme.disabled)
-          Text(
-              text = stringResource(id = R.string.not_connected),
-              fontSize = MaterialTheme.typography.titleMedium.fontSize,
-              fontWeight = FontWeight.SemiBold,
-              textAlign = TextAlign.Center,
-              fontFamily = MaterialTheme.typography.titleMedium.fontFamily)
-          val tailnetName = user.NetworkProfile?.tailnetNameForDisplay() ?: ""
-          Text(
-              buildAnnotatedString {
-                append(stringResource(id = R.string.connect_to_tailnet_prefix))
-                pushStyle(SpanStyle(fontWeight = FontWeight.Bold))
-                append(tailnetName)
-                pop()
-                append(stringResource(id = R.string.connect_to_tailnet_suffix))
-              },
-              fontSize = MaterialTheme.typography.titleMedium.fontSize,
-              fontWeight = FontWeight.Normal,
-              textAlign = TextAlign.Center,
-          )
-          Spacer(modifier = Modifier.size(1.dp))
-          PrimaryActionButton(onClick = connectAction) {
+          } else if (state == Ipn.State.NeedsMachineAuth) {
+            Icon(
+                modifier = Modifier.size(40.dp),
+                imageVector = Icons.Outlined.Lock,
+                contentDescription = "Device requires authentication",
+                tint = com.tailscale.ipn.ui.theme.SpaceEmeraldPrimary)
             Text(
-                text = stringResource(id = R.string.connect),
-                fontSize = MaterialTheme.typography.titleMedium.fontSize)
-          }
-        } else {
-          TailscaleLogoView(modifier = Modifier.size(50.dp))
-          Spacer(modifier = Modifier.size(1.dp))
-          Text(
-              text = stringResource(id = R.string.welcome_to_tailscale),
-              style = MaterialTheme.typography.titleMedium,
-              textAlign = TextAlign.Center)
-          Text(
-              stringResource(R.string.login_to_join_your_tailnet),
-              style = MaterialTheme.typography.titleSmall,
-              textAlign = TextAlign.Center)
-          Spacer(modifier = Modifier.size(1.dp))
-          PrimaryActionButton(onClick = loginAction) {
+                text = stringResource(id = R.string.machine_auth_required),
+                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
+                color = com.tailscale.ipn.ui.theme.SpaceTextPrimary,
+                textAlign = TextAlign.Center)
             Text(
-                text = stringResource(id = R.string.log_in),
-                fontSize = MaterialTheme.typography.titleMedium.fontSize)
+                text = stringResource(id = R.string.machine_auth_explainer),
+                style = MaterialTheme.typography.bodyMedium,
+                color = com.tailscale.ipn.ui.theme.SpaceTextSecondary,
+                textAlign = TextAlign.Center)
+            Spacer(modifier = Modifier.size(1.dp))
+            selfNode?.let {
+              PrimaryActionButton(onClick = { loginAtUrlAction(it.nodeAdminUrl) }) {
+                Text(
+                    text = stringResource(id = R.string.open_admin_console),
+                    fontSize = MaterialTheme.typography.titleMedium.fontSize)
+              }
+            }
+          } else if (state != Ipn.State.NeedsLogin && user != null && !user.isEmpty()) {
+            Icon(
+                painter = painterResource(id = R.drawable.power),
+                contentDescription = null,
+                modifier = Modifier.size(40.dp),
+                tint = com.tailscale.ipn.ui.theme.SpaceTextSecondary)
+            Text(
+                text = stringResource(id = R.string.not_connected),
+                fontSize = MaterialTheme.typography.titleMedium.fontSize,
+                fontWeight = FontWeight.SemiBold,
+                color = com.tailscale.ipn.ui.theme.SpaceTextPrimary,
+                textAlign = TextAlign.Center,
+                fontFamily = MaterialTheme.typography.titleMedium.fontFamily)
+            val tailnetName = user.NetworkProfile?.tailnetNameForDisplay() ?: "AngolanVPN"
+            Text(
+                buildAnnotatedString {
+                  append(stringResource(id = R.string.connect_to_tailnet_prefix))
+                  pushStyle(SpanStyle(fontWeight = FontWeight.Bold, color = com.tailscale.ipn.ui.theme.SpaceEmeraldLight))
+                  append(tailnetName)
+                  pop()
+                  append(stringResource(id = R.string.connect_to_tailnet_suffix))
+                },
+                fontSize = MaterialTheme.typography.titleMedium.fontSize,
+                fontWeight = FontWeight.Normal,
+                color = com.tailscale.ipn.ui.theme.SpaceTextSecondary,
+                textAlign = TextAlign.Center,
+            )
+            Spacer(modifier = Modifier.size(1.dp))
+            PrimaryActionButton(onClick = connectAction) {
+              Text(
+                  text = stringResource(id = R.string.connect),
+                  fontSize = MaterialTheme.typography.titleMedium.fontSize)
+            }
+          } else {
+            Spacer(modifier = Modifier.size(8.dp))
+            Text(
+                text = stringResource(id = R.string.welcome_to_tailscale),
+                style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
+                color = com.tailscale.ipn.ui.theme.SpaceTextPrimary,
+                textAlign = TextAlign.Center)
+            Text(
+                stringResource(R.string.login_to_join_your_tailnet),
+                style = MaterialTheme.typography.titleSmall,
+                color = com.tailscale.ipn.ui.theme.SpaceTextSecondary,
+                textAlign = TextAlign.Center)
+            Spacer(modifier = Modifier.size(4.dp))
+            PrimaryActionButton(onClick = loginAction) {
+              Text(
+                  text = stringResource(id = R.string.log_in),
+                  fontSize = MaterialTheme.typography.titleMedium.fontSize)
+            }
           }
         }
       }
@@ -810,6 +895,99 @@ fun Search(
                         overflow = TextOverflow.Ellipsis,
                         modifier = Modifier.weight(1f) // Ensure text takes up remaining space
                         )
+                  }
+            }
+      }
+}
+
+@Composable
+fun BusinessVectorIcon(tint: Color, modifier: Modifier = Modifier) {
+  Canvas(modifier = modifier) {
+    val w = size.width
+    val h = size.height
+    val path =
+        Path().apply {
+          moveTo(w * 0.2f, h * 0.9f)
+          lineTo(w * 0.2f, h * 0.2f)
+          lineTo(w * 0.8f, h * 0.2f)
+          lineTo(w * 0.8f, h * 0.9f)
+          close()
+        }
+    drawPath(path, color = tint, style = Stroke(width = w * 0.08f))
+    val strokeWidth = w * 0.06f
+    drawLine(tint, Offset(w * 0.35f, h * 0.35f), Offset(w * 0.45f, h * 0.35f), strokeWidth = strokeWidth)
+    drawLine(tint, Offset(w * 0.55f, h * 0.35f), Offset(w * 0.65f, h * 0.35f), strokeWidth = strokeWidth)
+    drawLine(tint, Offset(w * 0.35f, h * 0.55f), Offset(w * 0.45f, h * 0.55f), strokeWidth = strokeWidth)
+    drawLine(tint, Offset(w * 0.55f, h * 0.55f), Offset(w * 0.65f, h * 0.55f), strokeWidth = strokeWidth)
+  }
+}
+
+@Composable
+fun CorporateCtaCard(onCorporateWizard: () -> Unit) {
+  Box(
+      modifier =
+          Modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 16.dp)
+              .fillMaxWidth()) {
+        Card(
+            modifier =
+                Modifier.fillMaxWidth()
+                    .border(1.dp, com.tailscale.ipn.ui.theme.SpaceEmeraldPrimary, RoundedCornerShape(16.dp))
+                    .clickable { onCorporateWizard() },
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(containerColor = com.tailscale.ipn.ui.theme.SpaceDarkCard)) {
+              Row(
+                  modifier = Modifier.padding(16.dp),
+                  verticalAlignment = Alignment.CenterVertically,
+                  horizontalArrangement = Arrangement.SpaceBetween) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.weight(1f)) {
+                          Box(
+                              modifier =
+                                  Modifier.size(40.dp)
+                                      .clip(RoundedCornerShape(10.dp))
+                                      .background(com.tailscale.ipn.ui.theme.SpaceEmeraldContainer),
+                              contentAlignment = Alignment.Center) {
+                                BusinessVectorIcon(
+                                    tint = com.tailscale.ipn.ui.theme.SpaceEmeraldPrimary,
+                                    modifier = Modifier.size(20.dp))
+                              }
+
+                          Spacer(modifier = Modifier.width(12.dp))
+
+                          Column {
+                            Surface(
+                                shape = RoundedCornerShape(50),
+                                color = com.tailscale.ipn.ui.theme.SpaceEmeraldPrimary.copy(alpha = 0.15f)) {
+                                  Text(
+                                      text = "EMPRESAS",
+                                      style =
+                                          MaterialTheme.typography.labelSmall.copy(
+                                              fontWeight = FontWeight.Bold,
+                                              color = com.tailscale.ipn.ui.theme.SpaceEmeraldPrimary),
+                                      modifier =
+                                          Modifier.padding(horizontal = 8.dp, vertical = 2.dp))
+                                }
+                            Spacer(modifier = Modifier.height(2.dp))
+                            Text(
+                                text = "É uma empresa?",
+                                style =
+                                    MaterialTheme.typography.titleMedium.copy(
+                                        fontWeight = FontWeight.Bold,
+                                        color = com.tailscale.ipn.ui.theme.SpaceTextPrimary))
+                            Text(
+                                text = "Interligação Privada L3 Dedicada",
+                                style =
+                                    MaterialTheme.typography.bodySmall.copy(
+                                        color = com.tailscale.ipn.ui.theme.SpaceTextSecondary))
+                          }
+                        }
+
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                        contentDescription = null,
+                        tint = com.tailscale.ipn.ui.theme.SpaceEmeraldPrimary,
+                        modifier = Modifier.size(18.dp))
                   }
             }
       }

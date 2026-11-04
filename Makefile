@@ -53,7 +53,7 @@ ifeq ($(ANDROID_SDK_ROOT),)
     else ifneq ($(WINDIR),)
         export ANDROID_SDK_ROOT := $(HOME)/AppData/Local/Android/sdk
     else
-        export ANDROID_SDK_ROOT := $(PWD)/android-sdk
+        export ANDROID_SDK_ROOT := $(CURDIR)/android-sdk
     endif
 endif
 export ANDROID_HOME ?= $(ANDROID_SDK_ROOT)
@@ -104,10 +104,10 @@ export GOTOOLCHAIN
 TOOLCHAINDIR ?=
 export TOOLCHAINDIR
 
-GOBIN := $(PWD)/android/build/go/bin
+GOBIN := $(CURDIR)/android/build/go/bin
 export GOBIN
 
-export PATH := $(PWD)/tool:$(GOBIN):$(ANDROID_HOME)/cmdline-tools/latest/bin:$(ANDROID_HOME)/platform-tools:$(PATH)
+export PATH := $(CURDIR)/tool:$(GOBIN):$(ANDROID_HOME)/cmdline-tools/latest/bin:$(ANDROID_HOME)/platform-tools:$(PATH)
 export GOROOT := # Unset
 
 # ------------------------------------------------------------------------------

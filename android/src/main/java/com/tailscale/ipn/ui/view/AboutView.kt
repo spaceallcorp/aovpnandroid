@@ -39,7 +39,9 @@ import com.tailscale.ipn.ui.util.AppVersion
 fun AboutView(backToSettings: BackNavigation) {
   val localClipboardManager = LocalClipboardManager.current
 
-  Scaffold(topBar = { Header(R.string.about_view_header, onBack = backToSettings) }) { innerPadding
+  Scaffold(
+      containerColor = com.tailscale.ipn.ui.theme.SpaceDarkBg,
+      topBar = { Header(R.string.about_view_header, onBack = backToSettings) }) { innerPadding
     ->
     Column(
         verticalArrangement =
@@ -50,14 +52,6 @@ fun AboutView(backToSettings: BackNavigation) {
                 .fillMaxHeight()
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())) {
-          TailscaleLogoView(
-              usesOnBackgroundColors = true,
-              modifier =
-                  Modifier.width(100.dp)
-                      .height(100.dp)
-                      .clip(RoundedCornerShape(50))
-                      .background(MaterialTheme.colorScheme.logoBackground)
-                      .padding(25.dp))
 
           Column(
               verticalArrangement =

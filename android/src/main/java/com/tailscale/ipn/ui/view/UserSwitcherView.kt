@@ -67,6 +67,7 @@ fun UserSwitcherView(nav: UserSwitcherNav, viewModel: UserSwitcherViewModel = vi
   val isOwner = netmapState?.hasCap(capabilityIsOwner) == true
 
   Scaffold(
+      containerColor = com.tailscale.ipn.ui.theme.SpaceDarkBg,
       topBar = {
         Header(
             R.string.accounts,
@@ -162,6 +163,13 @@ fun UserSwitcherView(nav: UserSwitcherNav, viewModel: UserSwitcherViewModel = vi
                       showDeleteDialog = true
                     }
                   }
+
+                  Lists.SectionDivider()
+                  Text(
+                      text = "© 2026 AngolanVPN. Todos os direitos reservados.",
+                      style = MaterialTheme.typography.labelSmall,
+                      color = com.tailscale.ipn.ui.theme.SpaceTextSecondary,
+                      modifier = Modifier.padding(16.dp))
                 }
               }
             }

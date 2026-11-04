@@ -3,6 +3,7 @@
 
 package com.tailscale.ipn.ui.view
 
+import android.content.Intent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -22,7 +23,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.core.net.toUri
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -54,6 +57,7 @@ fun SettingsView(
     appViewModel: AppViewModel = viewModel()
 ) {
   val handler = LocalUriHandler.current
+  val context = LocalContext.current
 
   val user by viewModel.loggedInUser.collectAsState()
   val isAdmin by viewModel.isAdmin.collectAsState()
@@ -153,6 +157,22 @@ fun SettingsView(
           Lists.SectionDivider()
           Setting.Text(R.string.bug_report, onClick = settingsNav.onNavigateToBugReport)
           */
+
+          Lists.ItemDivider()
+          Setting.Text(
+              title = "Falar com o Suporte",
+              subtitle = "contact@spaceall.net",
+              onClick = {
+                try {
+                  val intent =
+                      Intent(
+                          Intent.ACTION_SENDTO,
+                          "mailto:contact@spaceall.net?subject=Suporte%20AngolanVPN".toUri())
+                  intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                  context.startActivity(intent)
+                } catch (ignored: Exception) {
+                }
+              })
 
           Lists.ItemDivider()
           Setting.Text(

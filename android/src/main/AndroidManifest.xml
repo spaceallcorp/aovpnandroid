@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tailscale.ipn"
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -34,7 +35,7 @@
         android:required="false" />
 
     <application
-        android:name=".App"
+        android:name="com.tailscale.ipn.App"
         android:allowBackup="false"
         android:fullBackupContent="@xml/backup_rules"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -46,7 +47,7 @@
         android:enableOnBackInvokedCallback="true"
         android:theme="@style/Theme.App.SplashScreen">
         <activity
-            android:name="MainActivity"
+            android:name="com.tailscale.ipn.MainActivity"
             android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden"
             android:exported="true"
             android:label="@string/app_name"
@@ -63,7 +64,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ShareActivity"
+            android:name="com.tailscale.ipn.ShareActivity"
             android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden"
             android:exported="true"
             android:label="@string/app_name"
@@ -97,7 +98,7 @@
         </activity>
 
         <receiver
-            android:name="IPNReceiver"
+            android:name="com.tailscale.ipn.IPNReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.tailscale.ipn.CONNECT_VPN" />
@@ -107,7 +108,7 @@
         </receiver>
 
         <receiver
-            android:name=".MDMSettingsChangedReceiver"
+            android:name="com.tailscale.ipn.mdm.MDMSettingsChangedReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.APPLICATION_RESTRICTIONS_CHANGED" />
@@ -115,7 +116,7 @@
         </receiver>
 
         <service
-            android:name=".IPNService"
+            android:name="com.tailscale.ipn.IPNService"
             android:exported="false"
             android:foregroundServiceType="systemExempted"
             android:permission="android.permission.BIND_VPN_SERVICE">
@@ -124,7 +125,7 @@
             </intent-filter>
         </service>
         <service
-            android:name=".QuickToggleService"
+            android:name="com.tailscale.ipn.QuickToggleService"
             android:exported="true"
             android:icon="@drawable/ic_tile"
             android:label="@string/tile_name"

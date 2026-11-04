@@ -87,31 +87,31 @@ private val LightColors =
 
 private val DarkColors =
     darkColorScheme(
-        primary = Color(0xFF00205B), // blue-600
-        onPrimary = Color(0xFFFFFFFF), // white
-        primaryContainer = Color(0xFFf0f5ff), // blue-0
-        onPrimaryContainer = Color(0xFF5A82DC), // blue-400
-        error = Color(0xFFEF5350), // red-400
-        onError = Color(0xFFFFFFFF), // white
-        errorContainer = Color(0xFFfff6f4), // red-0
-        onErrorContainer = Color(0xFF940822), // red-600
-        surfaceDim = Color(0xFF1f1e1e), // gray-900
-        surface = Color(0xFF232222), // gray-800
-        background = Color(0xFF181717), // gray-1000
-        surfaceBright = Color(0xFF444342), // gray-600
-        surfaceContainerLowest = Color(0xFF1f1e1e), // gray-900
-        surfaceContainerLow = Color(0xFF232222), // gray-800
-        surfaceContainer = Color(0xFF181717), // gray-1000
-        surfaceContainerHigh = Color(0xFF232222), // gray-800
-        surfaceContainerHighest = Color(0xFF2e2d2d), // gray-700
-        surfaceVariant = Color(0xFF1f1e1e), // gray-900
-        onSurface = Color(0xFFfaf9f8), // gray-0
-        onSurfaceVariant = Color(0xFFafacab), // gray-400
-        outline = Color(0xFF706E6D), // gray-500
-        outlineVariant = Color(0xFF2E2D2D), // gray-700
-        inverseSurface = Color(0xFFEDEBEA), // gray-200
-        inverseOnSurface = Color(0xFF000000), // black
-        scrim = Color(0xAA000000), // black
+        primary = SpaceEmeraldPrimary,
+        onPrimary = Color(0xFFFFFFFF),
+        primaryContainer = SpaceEmeraldContainer,
+        onPrimaryContainer = SpaceEmeraldLight,
+        error = SpaceRedOffline,
+        onError = Color(0xFFFFFFFF),
+        errorContainer = Color(0xFF7F1D1D),
+        onErrorContainer = Color(0xFFFCA5A5),
+        surfaceDim = SpaceDarkBg,
+        surface = SpaceDarkCard,
+        background = SpaceDarkBg,
+        surfaceBright = SpaceDarkSurface,
+        surfaceContainerLowest = SpaceDarkBg,
+        surfaceContainerLow = SpaceDarkCard,
+        surfaceContainer = SpaceDarkCard,
+        surfaceContainerHigh = SpaceDarkSurface,
+        surfaceContainerHighest = SpaceDarkBorder,
+        surfaceVariant = SpaceDarkCard,
+        onSurface = SpaceTextPrimary,
+        onSurfaceVariant = SpaceTextSecondary,
+        outline = SpaceDarkBorder,
+        outlineVariant = Color(0xFF1E2338),
+        inverseSurface = Color(0xFFF9FAFB),
+        inverseOnSurface = SpaceDarkBg,
+        scrim = Color(0xAA000000),
     )
 
 val ColorScheme.warning: Color
@@ -305,9 +305,9 @@ val ColorScheme.topAppBar: TopAppBarColors
   get() =
       TopAppBarDefaults.topAppBarColors()
           .copy(
-              containerColor = MaterialTheme.colorScheme.surfaceContainer,
-              navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
-              titleContentColor = MaterialTheme.colorScheme.onSurface,
+              containerColor = SpaceDarkBg,
+              navigationIconContentColor = SpaceEmeraldPrimary,
+              titleContentColor = SpaceTextPrimary,
           )
 
 val ColorScheme.secondaryButton: ButtonColors

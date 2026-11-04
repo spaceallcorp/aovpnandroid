@@ -195,7 +195,12 @@ class Tailcfg {
       var DisplayName: String? = null
   ) {
     fun tailnetNameForDisplay(): String? {
-      return DisplayName?.takeIf { it.isNotEmpty() } ?: DomainName
+      val raw = DisplayName?.takeIf { it.isNotEmpty() } ?: DomainName ?: return "AngolanVPN"
+      return if (raw.contains("angolanvpn.com", ignoreCase = true) || raw.contains("vpn.", ignoreCase = true)) {
+        "AngolanVPN"
+      } else {
+        raw
+      }
     }
   }
 
