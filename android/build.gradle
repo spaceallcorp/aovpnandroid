@@ -38,7 +38,7 @@ android {
         applicationId "com.angolanvpn.client"
         minSdkVersion 26
         targetSdkVersion 36
-        versionCode 617
+        versionCode 620
         versionName getVersionProperty("VERSION_LONG")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
