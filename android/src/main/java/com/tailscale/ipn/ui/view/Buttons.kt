@@ -34,7 +34,7 @@ fun OpenURLButton(title: String, url: String) {
     Text(
         title,
         style = MaterialTheme.typography.bodyMedium,
-        color = MaterialTheme.colorScheme.link,
+        color = com.tailscale.ipn.ui.theme.SpaceEmeraldLight,
         textDecoration = TextDecoration.Underline,
     )
   }

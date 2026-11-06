@@ -64,8 +64,8 @@
     <string name="exit_node_offline_mdm_orgname">O nó de saída selecionado por %1$s está atualmente offline. O tráfego de Internet está bloqueado. Contacte um administrador de rede para obter ajuda.</string>
     <string name="exit_node_offline_mdm">O nó de saída selecionado pela sua organização está atualmente offline. O tráfego de Internet está bloqueado. Contacte um administrador de rede para obter ajuda.</string>
     <string name="starting">A iniciar…</string>
-    <string name="connect_to_tailnet_prefix">"Ligue-se novamente para comunicar com os outros dispositivos na "</string>
-    <string name="connect_to_tailnet_suffix">" tailnet."</string>
+    <string name="connect_to_tailnet_prefix">"Ligue-se novamente para usar "</string>
+    <string name="connect_to_tailnet_suffix">""</string>
     <string name="welcome_to_tailscale">Bem-vindo à AngolanVPN</string>
     <string name="login_to_join_your_tailnet">Faça login para conectar-se a um servidor em Angola</string>
     <string name="give_permissions">Configure uma ligação ENaaS para começar a usar a AngolanVPN.</string>

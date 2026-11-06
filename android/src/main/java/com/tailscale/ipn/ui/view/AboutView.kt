@@ -59,7 +59,8 @@ fun AboutView(backToSettings: BackNavigation) {
               horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(
                     stringResource(R.string.about_view_title),
-                    fontWeight = FontWeight.SemiBold,
+                    fontWeight = FontWeight.Bold,
+                    color = com.tailscale.ipn.ui.theme.SpaceTextPrimary,
                     fontSize = MaterialTheme.typography.titleLarge.fontSize)
                 Text(
                     modifier =
@@ -72,7 +73,8 @@ fun AboutView(backToSettings: BackNavigation) {
                     // ... but we always display the short version in the UI to avoid user
                     // confusion.
                     text = "${stringResource(R.string.version)} ${AppVersion.Short()}",
-                    fontWeight = MaterialTheme.typography.bodyMedium.fontWeight,
+                    fontWeight = FontWeight.SemiBold,
+                    color = com.tailscale.ipn.ui.theme.SpaceEmeraldLight,
                     fontSize = MaterialTheme.typography.bodyMedium.fontSize)
               }
 
@@ -85,8 +87,10 @@ fun AboutView(backToSettings: BackNavigation) {
           Text(
               stringResource(R.string.about_view_footnotes),
               fontWeight = FontWeight.Normal,
+              color = com.tailscale.ipn.ui.theme.SpaceTextSecondary,
               fontSize = MaterialTheme.typography.labelMedium.fontSize,
-              textAlign = TextAlign.Center)
+              textAlign = TextAlign.Center,
+              modifier = Modifier.padding(horizontal = 24.dp))
         }
   }
 }

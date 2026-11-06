@@ -508,27 +508,10 @@ private fun Step4Success(onFinish: () -> Unit) {
         Spacer(modifier = Modifier.height(24.dp))
 
         Text(
-            text = "Proposta recebida com sucesso.",
+            text = "Conclua o envio da solicitação usando o seu serviço de e-mail principal. Após o envio com sucesso a nossa equipa de engenharia entrará em contacto.",
             style =
-                MaterialTheme.typography.headlineSmall.copy(
-                    fontWeight = FontWeight.Bold, color = SpaceTextPrimary))
-
-        Spacer(modifier = Modifier.height(12.dp))
-
-        Text(
-            text = "A nossa equipa de engenharia entrará em contacto em breve.",
-            style =
-                MaterialTheme.typography.bodyLarge.copy(
-                    color = SpaceEmeraldLight, fontWeight = FontWeight.Medium),
-            textAlign = androidx.compose.ui.text.style.TextAlign.Center)
-
-        Spacer(modifier = Modifier.height(12.dp))
-
-        Text(
-            text = "Um e-mail estruturado foi enviado para contact@spaceall.net com a especificação da sua topologia.",
-            style =
-                MaterialTheme.typography.bodySmall.copy(
-                    color = SpaceTextSecondary, lineHeight = 18.sp),
+                MaterialTheme.typography.titleMedium.copy(
+                    fontWeight = FontWeight.Bold, color = SpaceTextPrimary),
             textAlign = androidx.compose.ui.text.style.TextAlign.Center)
 
         Spacer(modifier = Modifier.height(36.dp))
@@ -539,7 +522,7 @@ private fun Step4Success(onFinish: () -> Unit) {
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = SpaceEmeraldPrimary)) {
               Text(
-                  text = "Ir para o Painel de Exit Nodes",
+                  text = "Voltar para o painel Principal",
                   style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold))
             }
       }
