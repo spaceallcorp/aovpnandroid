@@ -399,7 +399,7 @@ private fun Step3DataForm(
         style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold, color = SpaceTextPrimary))
     Spacer(modifier = Modifier.height(6.dp))
     Text(
-        text = "Preencha os dados da empresa para receção da proposta de Interligação L3:",
+        text = "Preencha os dados da empresa para receção da Solicitação de Proposta de Interligação:",
         style = MaterialTheme.typography.bodyMedium.copy(color = SpaceTextSecondary))
 
     Spacer(modifier = Modifier.height(20.dp))
@@ -479,7 +479,7 @@ private fun Step3DataForm(
         shape = RoundedCornerShape(16.dp),
         colors = ButtonDefaults.buttonColors(containerColor = SpaceEmeraldPrimary)) {
           Text(
-              text = "Submeter Pedido de Proposta L3",
+              text = "Submeter Solicitação de Proposta",
               style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold))
         }
   }
@@ -538,11 +538,11 @@ private fun sendProposalEmail(
     phone: String
 ) {
   try {
-    val subject = Uri.encode("[Proposta L3] $company - $name")
+    val subject = Uri.encode("[Solicitação de Proposta] $company - $name")
     val body =
         Uri.encode(
             """
-        PROPOSTA DE INTERLIGAÇÃO PRIVADA L3 - SPACEALL
+        SOLICITAÇÃO DE PROPOSTA DE INTERLIGAÇÃO PRIVADA - SPACEALL
         
         Nome do Responsável: $name
         Empresa: $company
