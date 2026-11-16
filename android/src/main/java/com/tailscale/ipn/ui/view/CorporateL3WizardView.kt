@@ -81,6 +81,7 @@ fun CorporateL3WizardView(onBack: () -> Unit, onDoneToExitNodes: () -> Unit) {
   var selectedIndustry by remember { mutableStateOf("") }
   var contactName by remember { mutableStateOf("") }
   var companyName by remember { mutableStateOf("") }
+  var companyNif by remember { mutableStateOf("") }
   var corporateEmail by remember { mutableStateOf("") }
   var phoneWhatsApp by remember { mutableStateOf("") }
 
@@ -176,6 +177,8 @@ fun CorporateL3WizardView(onBack: () -> Unit, onDoneToExitNodes: () -> Unit) {
                               onNameChange = { contactName = it },
                               company = companyName,
                               onCompanyChange = { companyName = it },
+                              nif = companyNif,
+                              onNifChange = { companyNif = it },
                               email = corporateEmail,
                               onEmailChange = { corporateEmail = it },
                               phone = phoneWhatsApp,
@@ -188,6 +191,7 @@ fun CorporateL3WizardView(onBack: () -> Unit, onDoneToExitNodes: () -> Unit) {
                                       selectedIndustry,
                                       contactName,
                                       companyName,
+                                      companyNif,
                                       corporateEmail,
                                       phoneWhatsApp)
                                 }
@@ -378,36 +382,74 @@ private fun Step2Industry(selected: String, onSelect: (String) -> Unit, onNext: 
   }
 }
 
+fun isCorporateEmail(email: String): Boolean {
+  val cleanEmail = email.trim()
+  if (!cleanEmail.contains("@") || !cleanEmail.contains(".")) return false
+  val domain = cleanEmail.substringAfter("@").lowercase().trim()
+  val publicDomains =
+      setOf(
+          "gmail.com",
+          "yahoo.com",
+          "yahoo.com.br",
+          "hotmail.com",
+          "outlook.com",
+          "live.com",
+          "icloud.com",
+          "aol.com",
+          "yandex.com",
+          "mail.ru",
+          "proton.me",
+          "protonmail.com")
+  return domain.isNotEmpty() && !publicDomains.contains(domain)
+}
+
+fun isValidNif(nif: String): Boolean {
+  val cleanNif = nif.trim()
+  return cleanNif.length >= 8 && cleanNif.all { it.isLetterOrDigit() }
+}
+
 @Composable
 private fun Step3DataForm(
     name: String,
     onNameChange: (String) -> Unit,
     company: String,
     onCompanyChange: (String) -> Unit,
+    nif: String,
+    onNifChange: (String) -> Unit,
     email: String,
     onEmailChange: (String) -> Unit,
     phone: String,
     onPhoneChange: (String) -> Unit,
     onSubmit: () -> Unit
 ) {
+  val isEmailCorporate = isCorporateEmail(email)
+  val isNifValid = isValidNif(nif)
+
+  val showEmailError = email.isNotBlank() && !isEmailCorporate
+  val showNifError = nif.isNotBlank() && !isNifValid
+
   val isValid =
-      name.isNotBlank() && company.isNotBlank() && email.contains("@") && phone.isNotBlank()
+      name.isNotBlank() && company.isNotBlank() && isNifValid && isEmailCorporate && phone.isNotBlank()
 
   Column(modifier = Modifier.fillMaxWidth()) {
     Text(
         text = "Submissão de Dados Corporativos",
-        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold, color = SpaceTextPrimary))
+        style =
+            MaterialTheme.typography.headlineSmall.copy(
+                fontWeight = FontWeight.Bold, color = SpaceTextPrimary))
     Spacer(modifier = Modifier.height(6.dp))
     Text(
-        text = "Preencha os dados da empresa para receção da Solicitação de Proposta de Interligação:",
+        text =
+            "Preencha os dados da empresa para receção da Solicitação de Proposta de Interligação:",
         style = MaterialTheme.typography.bodyMedium.copy(color = SpaceTextSecondary))
 
     Spacer(modifier = Modifier.height(20.dp))
 
+    // Responsável
     OutlinedTextField(
         value = name,
         onValueChange = onNameChange,
-        label = { Text("Nome do Responsável", color = SpaceTextSecondary) },
+        label = { Text("Nome do Responsável *", color = SpaceTextSecondary) },
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(14.dp),
         colors =
@@ -421,10 +463,11 @@ private fun Step3DataForm(
 
     Spacer(modifier = Modifier.height(14.dp))
 
+    // Empresa
     OutlinedTextField(
         value = company,
         onValueChange = onCompanyChange,
-        label = { Text("Nome da Empresa", color = SpaceTextSecondary) },
+        label = { Text("Nome da Empresa *", color = SpaceTextSecondary) },
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(14.dp),
         colors =
@@ -438,16 +481,55 @@ private fun Step3DataForm(
 
     Spacer(modifier = Modifier.height(14.dp))
 
+    // NIF da Empresa (Obrigatório)
+    OutlinedTextField(
+        value = nif,
+        onValueChange = onNifChange,
+        label = { Text("NIF da Empresa *", color = SpaceTextSecondary) },
+        isError = showNifError,
+        supportingText = {
+          if (showNifError) {
+            Text(
+                "NIF corporativo inválido (mínimo 8 caracteres, ex: 5400012345)",
+                color = com.tailscale.ipn.ui.theme.SpaceRedOffline,
+                style = MaterialTheme.typography.bodySmall)
+          }
+        },
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(14.dp),
+        colors =
+            OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = SpaceEmeraldPrimary,
+                unfocusedBorderColor = SpaceDarkBorder,
+                errorBorderColor = com.tailscale.ipn.ui.theme.SpaceRedOffline,
+                focusedContainerColor = SpaceDarkCard,
+                unfocusedContainerColor = SpaceDarkCard,
+                focusedTextColor = SpaceTextPrimary,
+                unfocusedTextColor = SpaceTextPrimary))
+
+    Spacer(modifier = Modifier.height(14.dp))
+
+    // E-mail Corporativo (Obrigatório)
     OutlinedTextField(
         value = email,
         onValueChange = onEmailChange,
-        label = { Text("E-mail Corporativo", color = SpaceTextSecondary) },
+        label = { Text("E-mail Corporativo *", color = SpaceTextSecondary) },
+        isError = showEmailError,
+        supportingText = {
+          if (showEmailError) {
+            Text(
+                "Apenas e-mails corporativos são aceites (ex: nome@empresa.co.ao). Domínios públicos (@gmail, @yahoo) não são permitidos.",
+                color = com.tailscale.ipn.ui.theme.SpaceRedOffline,
+                style = MaterialTheme.typography.bodySmall)
+          }
+        },
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(14.dp),
         colors =
             OutlinedTextFieldDefaults.colors(
                 focusedBorderColor = SpaceEmeraldPrimary,
                 unfocusedBorderColor = SpaceDarkBorder,
+                errorBorderColor = com.tailscale.ipn.ui.theme.SpaceRedOffline,
                 focusedContainerColor = SpaceDarkCard,
                 unfocusedContainerColor = SpaceDarkCard,
                 focusedTextColor = SpaceTextPrimary,
@@ -455,10 +537,11 @@ private fun Step3DataForm(
 
     Spacer(modifier = Modifier.height(14.dp))
 
+    // Telefone / WhatsApp
     OutlinedTextField(
         value = phone,
         onValueChange = onPhoneChange,
-        label = { Text("Telefone / WhatsApp", color = SpaceTextSecondary) },
+        label = { Text("Telefone / WhatsApp *", color = SpaceTextSecondary) },
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(14.dp),
         colors =
@@ -508,7 +591,8 @@ private fun Step4Success(onFinish: () -> Unit) {
         Spacer(modifier = Modifier.height(24.dp))
 
         Text(
-            text = "Conclua o envio da solicitação usando o seu serviço de e-mail principal. Após o envio com sucesso a nossa equipa de engenharia entrará em contacto.",
+            text =
+                "Conclua o envio da solicitação usando o seu serviço de e-mail principal. Após o envio com sucesso a nossa equipa de engenharia entrará em contacto.",
             style =
                 MaterialTheme.typography.titleMedium.copy(
                     fontWeight = FontWeight.Bold, color = SpaceTextPrimary),
@@ -534,11 +618,12 @@ private fun sendProposalEmail(
     industry: String,
     name: String,
     company: String,
+    nif: String,
     email: String,
     phone: String
 ) {
   try {
-    val subject = Uri.encode("[Solicitação de Proposta] $company - $name")
+    val subject = Uri.encode("[Solicitação de Proposta] $company - NIF: $nif")
     val body =
         Uri.encode(
             """
@@ -546,6 +631,7 @@ private fun sendProposalEmail(
         
         Nome do Responsável: $name
         Empresa: $company
+        NIF da Empresa: $nif
         E-mail Corporativo: $email
         Telefone / WhatsApp: $phone
         

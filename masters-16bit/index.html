@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#060010" />
+    <meta
+      name="description"
+      content="Masters of the Universe 16 Bit — mapa interativo das relações entre os personagens de Eternia."
+    />
+    <title>Masters of the Universe 16 Bit — Mapa de Relações</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23060010'/%3E%3Crect x='14' y='4' width='4' height='18' fill='%2300f0ff'/%3E%3Crect x='10' y='20' width='12' height='4' fill='%23ffd400'/%3E%3Crect x='13' y='24' width='6' height='4' fill='%23ff2bd6'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="crt">
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">⚔️</div>
+          <div class="brand-text">
+            <p class="brand-kicker">ETERNIA // ARQUIVO DE LAÇOS</p>
+            <h1>MASTERS OF THE UNIVERSE <span>16 BIT</span></h1>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <button class="btn" id="btn-sound" type="button" aria-pressed="false">SOM: OFF</button>
+          <button class="btn is-active" id="btn-crt" type="button" aria-pressed="true">CRT: ON</button>
+          <button class="btn btn-gold" id="btn-shuffle" type="button">REORGANIZAR</button>
+        </div>
+      </header>
+
+      <main class="layout">
+        <aside class="sidebar pixel-panel" aria-label="Filtros e legenda">
+          <section class="panel-section">
+            <h2 class="section-title"><span>BUSCA</span><span class="section-tag">/</span></h2>
+            <label class="search-box">
+              <span class="search-icon" aria-hidden="true">🔍</span>
+              <input
+                id="search"
+                type="search"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="He-Man, Horda, magia..."
+                aria-label="Buscar personagem"
+              />
+            </label>
+            <p class="micro" id="search-status">Busque por nome, facção, era ou poder.</p>
+          </section>
+
+          <section class="panel-section">
+            <h2 class="section-title"><span>FACÇÕES</span><span class="section-tag">07</span></h2>
+            <div id="faction-list" class="faction-list"></div>
+          </section>
+
+          <section class="panel-section">
+            <h2 class="section-title"><span>LAÇOS</span><span class="section-tag">08</span></h2>
+            <div id="legend-list" class="legend-list" aria-label="Tipos de relação"></div>
+          </section>
+
+          <section class="panel-section stats-section">
+            <h2 class="section-title"><span>HUD</span><span class="section-tag">P1</span></h2>
+            <div class="stat-grid">
+              <div class="stat">
+                <b id="stat-characters">57</b>
+                <small>PERSONAGENS</small>
+              </div>
+              <div class="stat">
+                <b id="stat-relations">112</b>
+                <small>RELAÇÕES</small>
+              </div>
+            </div>
+            <p class="micro hud-note">Clique em um nó. Arraste para mover. Use a roda para dar zoom. Pressione <kbd>F</kbd> para congelar a física.</p>
+          </section>
+        </aside>
+
+        <section class="map-shell pixel-panel" id="map-shell" aria-label="Mapa de relações entre personagens">
+          <div class="map-watermark" aria-hidden="true">🏰</div>
+
+          <div class="map-toolbar">
+            <div class="map-hint">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              ARRASTE · SCROLL PARA ZOOM · DUPLO CLIQUE = FIT
+            </div>
+            <div class="map-zoom" role="group" aria-label="Controles de zoom">
+              <button id="btn-zoom-out" type="button" aria-label="Diminuir zoom">−</button>
+              <span id="zoom-label">100%</span>
+              <button id="btn-zoom-in" type="button" aria-label="Aumentar zoom">+</button>
+              <button id="btn-fit" type="button" aria-label="Encaixar mapa">FIT</button>
+            </div>
+          </div>
+
+          <div class="world" id="world">
+            <svg
+              id="edges"
+              class="edges"
+              width="1400"
+              height="1050"
+              viewBox="0 0 1400 1050"
+              aria-hidden="true"
+            ></svg>
+            <div id="nodes" class="nodes"></div>
+          </div>
+
+          <div class="node-tooltip" id="node-tooltip" role="tooltip"></div>
+          <div class="map-badge">SETOR 16 // ETERNIA</div>
+          <div class="map-scan" aria-hidden="true"></div>
+        </section>
+
+        <aside class="detail pixel-panel" aria-label="Ficha do personagem">
+          <div class="detail-head">
+            <span id="detail-title">ARQUIVO DE ETERNIA</span>
+            <button id="detail-close" type="button" aria-label="Fechar ficha">×</button>
+          </div>
+          <div class="detail-body" id="detail-body"></div>
+        </aside>
+      </main>
+
+      <footer class="statusbar">
+        <div class="ticker" aria-hidden="true">
+          <div class="ticker-track" id="ticker-track"></div>
+        </div>
+        <div class="status-info">
+          <span id="status-visible">57/57 PERSONAGENS · 112 LAÇOS</span>
+          <span>ZOOM <b id="status-zoom">100%</b></span>
+        </div>
+      </footer>
+    </div>
+
+    <div class="loading-bar" id="loading-bar" aria-hidden="true"></div>
+
+    <noscript>
+      <div class="noscript">Este arquivo precisa de JavaScript e de um servidor local para carregar as fichas.</div>
+    </noscript>
+
+    <script src="vendor/htmx.min.js"></script>
+    <script type="module" src="dist/app.js"></script>
+  </body>
+</html>

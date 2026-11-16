@@ -1,0 +1,15 @@
+{
+  "name": "masters-16bit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Mapa de relações dos personagens de Masters of the Universe em estética 16-bit, com htmx + CSS + TypeScript.",
+  "scripts": {
+    "build": "tsc && node scripts/gen-fragments.mjs",
+    "start": "node scripts/serve.mjs",
+    "dev": "npm run build && npm start"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
